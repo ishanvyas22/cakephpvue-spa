@@ -4,9 +4,8 @@
 
         <sidebar></sidebar>
 
-        <div class="container clearfix">
-            <router-view></router-view>
-        </div>
+        <router-view></router-view>
+
         <footer>
         </footer>
     </div>
