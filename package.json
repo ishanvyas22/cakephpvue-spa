@@ -1,0 +1,23 @@
+{
+  "name": "cakevue-spa",
+  "version": "1.0.0",
+  "description": "A CakePHP + VueJS single page application",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "author": "Ishan Vyas",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "laravel-mix": "^3.0.0",
+    "vue": "^2.5.18",
+    "vue-router": "^3.0.2"
+  }
+}
