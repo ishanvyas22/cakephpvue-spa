@@ -25,7 +25,7 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
     ```bash
     npm install
     ```
-2. Run below command (Uses awesome tool ([Laravel mix](https://laravel-mix.com)) by ([Jeffrey Way](https://github.com/JeffreyWay)))
+2. Run below command (Uses awesome tool [Laravel mix](https://laravel-mix.com) by [Jeffrey Way](https://github.com/JeffreyWay))
     - **To watch every changes in your vue file**
         ```bash
         npm run watch
