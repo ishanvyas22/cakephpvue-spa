@@ -1,7 +1,7 @@
 # A Basic CakePHP + VueJS Single Page Application
 A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton to quickly get started with cakephp and vuejs.
 
-# Installation
+## Installation
 1. Clone project into your server by below command
     ```bash
     git clone git@github.com:ishanvyas22/cakephpvue-spa.git
@@ -20,7 +20,7 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
     bin/cake migrations migrate
     ```
 
-# Development
+## Development
 1. Install npm packages
     ```bash
     npm install
@@ -39,15 +39,15 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
         npm run production
         ```
 
-# Notes
+## Notes
 - This is project is under development currently so you might not want to use this app in production directly.
 - This is just a skeleton/example how you can implement the VueJS with CakePHP.
 
-# TODO
+## TODO
 - To add TODO section in README :)
 
-#Issues
+## Issues
 Feel free to submit issues and enhancement requests.
 
-# Contribution
+## Contribution
 I love to welcome your contributions if you know VueJS / CakePHP.
