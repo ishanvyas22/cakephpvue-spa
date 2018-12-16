@@ -6,7 +6,6 @@ import App from './views/App.vue';
 
 window.axios = axios;
 
-// Vue.component('hello-world', App);
 Vue.component('app', App);
 
 const router = Vue.use(VueRouter);

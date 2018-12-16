@@ -29,11 +29,39 @@ class PostsController extends AppController
      */
     public function index()
     {
-        $posts = $this->paginate($this->Posts);
+        $data['query'] = [
+            'id' => [
+                'sort' => 'id',
+                'direction' => 'asc',
+            ],
+            'title' => [
+                'sort' => 'title',
+                'direction' => 'asc',
+            ],
+            'created' => [
+                'sort' => 'created',
+                'direction' => 'asc',
+            ],
+            'modified' => [
+                'sort' => 'modified',
+                'direction' => 'asc',
+            ],
+        ];
+
+        if ($this->getRequest()->getQuery()) {
+            $direction = 'asc';
+            if ($this->getRequest()->getQuery('direction') === 'asc') {
+                $direction = 'desc';
+            }
+
+            $data['query'][$this->getRequest()->getQuery('sort')]['direction'] = $direction;
+        }
+
+        $data['posts'] = $this->paginate($this->Posts);
 
         return $this->getResponse()
             ->withType('application/json')
-            ->withStringBody(json_encode($posts));
+            ->withStringBody(json_encode($data));
     }
 
     /**
