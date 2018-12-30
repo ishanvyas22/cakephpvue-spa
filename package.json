@@ -16,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "axios": "^0.18.0",
+    "form-serialize": "^0.7.2",
     "laravel-mix": "^3.0.0",
     "vue": "^2.5.18",
     "vue-router": "^3.0.2"

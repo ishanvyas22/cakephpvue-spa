@@ -8,7 +8,6 @@
         <div class="top-bar-section">
             <ul class="right">
                 <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-                <li><router-link :to="{ name: 'logout' }">Logout</router-link></li>
             </ul>
         </div>
     </nav>

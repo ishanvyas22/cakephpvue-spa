@@ -31,6 +31,6 @@ $cakeDescription = 'CakeVue Application';
     </div>
 </body>
 
-<script type="text/javascript" src="js/dist/app.js"></script>
+<script type="text/javascript" src="/js/dist/app.js"></script>
 
 </html>

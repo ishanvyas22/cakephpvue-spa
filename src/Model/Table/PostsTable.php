@@ -60,7 +60,9 @@ class PostsTable extends Table
 
         $validator
             ->scalar('description')
-            ->allowEmpty('description');
+            ->allowEmpty('description')
+            ->requirePresence('description', 'create')
+            ->notEmpty('description');
 
         return $validator;
     }
