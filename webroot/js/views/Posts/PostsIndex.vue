@@ -1,6 +1,15 @@
 <template>
     <div class="posts index large-9 medium-8 columns content">
-        <h3>Posts</h3>
+        <div class="row">
+            <div class="columns large-6">
+                <h3>Posts</h3>
+            </div>
+            <div class="columns large-6 clearfix">
+                <router-link
+                    :to="{ name: 'addPost' }"
+                    class="button radius right">Add Post</router-link>
+            </div>
+        </div>
         <table cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
