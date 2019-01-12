@@ -18,7 +18,7 @@
             getAddPostView(query) {
                 axios.get('/api/posts/add', { params: query })
                     .then(response => {
-                        this.content = response.data
+                        this.content = response.data;
                     })
                     .catch(error => {
                         console.log('Error: ' + error);

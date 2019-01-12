@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import axios from 'axios';
 import { routes } from './routes';
 import App from './views/App.vue';
+import Header from './components/Header.vue';
 
 window.axios = axios;
 
@@ -12,6 +13,9 @@ const router = Vue.use(VueRouter);
 
 const app = new Vue({
     el: '#app',
-    components: { App },
+    components: {
+        App,
+        'top-header': Header
+    },
     router: routes
 });

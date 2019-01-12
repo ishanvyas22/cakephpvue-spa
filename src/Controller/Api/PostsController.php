@@ -12,6 +12,13 @@ use App\Controller\AppController;
  */
 class PostsController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+
+        $this->viewBuilder()->setLayout(false);
+    }
+
     public function getTableHeading()
     {
         // $fields = [
@@ -77,7 +84,9 @@ class PostsController extends AppController
             'contain' => []
         ]);
 
-        $this->set('post', $post);
+        return $this->getResponse()
+            ->withType('application/json')
+            ->withStringBody(json_encode(['post' => $post]));
     }
 
     /**
@@ -87,7 +96,7 @@ class PostsController extends AppController
      */
     public function add()
     {
-        $this->viewBuilder()->setLayout(false);
+
 
         $post = $this->Posts->newEntity();
         if ($this->request->is('post')) {
@@ -123,10 +132,17 @@ class PostsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $post = $this->Posts->patchEntity($post, $this->request->getData());
-            if ($this->Posts->save($post)) {
+            if ($result = $this->Posts->save($post)) {
                 $this->Flash->success(__('The post has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->getResponse()
+                    ->withType('application/json')
+                    ->withStatus(200)
+                    ->withStringBody(json_encode([
+                        'data' => $result,
+                        'success' => true,
+                        'url' => '/posts'
+                    ]));
             }
             $this->Flash->error(__('The post could not be saved. Please, try again.'));
         }

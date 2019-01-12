@@ -16,13 +16,17 @@ class RoutesController extends AppController
     {
         $sidebar = [
             [
+                'title' => 'Dashboard',
+                'routeName' => 'dashboard',
+            ],
+            [
                 'title' => 'Posts',
                 'routeName' => 'posts',
             ],
-            [
-                'title' => 'Users',
-                'routeName' => 'users',
-            ],
+            // [
+            //     'title' => 'Users',
+            //     'routeName' => 'users',
+            // ],
         ];
 
         return $this->getResponse()

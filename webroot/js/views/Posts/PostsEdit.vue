@@ -1,0 +1,55 @@
+<template>
+    <div v-html="content" v-on:click.capture="handleClick"></div>
+</template>
+
+<script>
+    import formSerialize from 'form-serialize';
+
+    export default {
+        data() {
+            return {
+                content: '',
+                id: null
+            };
+        },
+        mounted() {
+            this.id = this.$route.params.id;
+
+            this.getEditPostView(this.$route.query);
+        },
+        methods: {
+            getEditPostView(query) {
+                axios.get(`/api/posts/edit/${this.id}`, { params: query })
+                    .then(response => {
+                        this.content = response.data;
+                    })
+                    .catch(error => {
+                        console.log('Error: ' + error);
+                    });
+            },
+            handleClick( e ) {
+                if ( e.target.tagName == 'BUTTON' && e.target.type == 'submit' ) {
+                    let data = formSerialize( e.target.form, {
+                        hash: false, empty: true
+                    } );
+
+                    data += '&' + e.target.name + '='
+                        + encodeURIComponent( e.target.value );
+
+                    axios.post( `/api/posts/edit/${this.id}`, data, {
+                        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                    } ).then( response => {
+                        // Redirect on success
+                        if (response.data.success) {
+                            this.$router.push({ path: response.data.url });
+                        }
+
+                        this.content = response.data;
+                    } );
+
+                    e.preventDefault();
+                }
+            }
+        },
+    }
+</script>

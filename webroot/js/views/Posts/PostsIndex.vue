@@ -7,7 +7,7 @@
             <div class="columns large-6 clearfix">
                 <router-link
                     :to="{ name: 'addPost' }"
-                    class="button radius right">Add Post</router-link>
+                    class="button shadow radius right small">Add Post</router-link>
             </div>
         </div>
         <table cellpadding="0" cellspacing="0">
@@ -35,7 +35,18 @@
                     <td>{{ post.created | moment }}</td>
                     <td>{{ post.modified | moment }}</td>
                     <td class="actions">
-
+                        <router-link
+                            :to="{ path: `posts/view/${post.id}` }"
+                            class="item"
+                            title="View"><i class="fi-eye"></i></router-link>
+                        <router-link
+                            :to="{ path: `posts/edit/${post.id}` }"
+                            class="item"
+                            title="Edit"><i class="fi-page-edit"></i></router-link>
+                        <router-link
+                            :to="{ path: `posts/delete/${post.id}` }"
+                            class="item"
+                            title="Remove"><i class="fi-trash"></i></router-link>
                     </td>
                 </tr>
             </tbody>

@@ -14,6 +14,7 @@ $cakeDescription = 'CakeVue Application';
 
     <?php
     echo $this->Html->css('base.css');
+    echo $this->Html->css('foundation-icons/foundation-icons.css');
     echo $this->Html->css('style.css');
     ?>
 
@@ -22,13 +23,18 @@ $cakeDescription = 'CakeVue Application';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div id="app">
+    <span id="app">
+        <top-header></top-header>
+
         <app></app>
 
         <?php
         // echo $this->fetch('content');
         ?>
-    </div>
+
+        <footer>
+        </footer>
+    </span>
 </body>
 
 <script type="text/javascript" src="/js/dist/app.js"></script>
