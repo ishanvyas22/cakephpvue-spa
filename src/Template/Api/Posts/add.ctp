@@ -7,6 +7,7 @@
             echo $this->Form->control('description');
         ?>
         <button type="submit" class="button radius shadow primary">Submit</button>
+        <a class="button shadow radius right mr-6" name="goBack">Back</a>
     </fieldset>
     <?= $this->Form->end() ?>
 </div>

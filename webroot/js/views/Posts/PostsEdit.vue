@@ -49,6 +49,13 @@
 
                     e.preventDefault();
                 }
+
+                // Redirect to last page if tag `a` tag with `goBack` name clicked
+                if ( e.target.tagName == 'A' && e.target.name == 'goBack' ) {
+                    this.$router.go(-1);
+
+                    e.preventDefault();
+                }
             }
         },
     }

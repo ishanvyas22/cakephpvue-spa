@@ -528,3 +528,7 @@ div.button-group.right a i {
     font-size: 2em;
     margin: 7px 10px;
 }
+
+.mr-6 {
+    margin-right: 6px;
+}
