@@ -12,6 +12,11 @@ use App\Controller\AppController;
 class RoutesController extends AppController
 {
 
+    /**
+     * Get sidebar array
+     *
+     * @return json
+     */
     public function getSidebar()
     {
         $sidebar = [

@@ -43,10 +43,9 @@
                             :to="{ path: `posts/edit/${post.id}` }"
                             class="item"
                             title="Edit"><i class="fi-page-edit"></i></router-link>
-                        <router-link
-                            :to="{ path: `posts/delete/${post.id}` }"
-                            class="item"
-                            title="Remove"><i class="fi-trash"></i></router-link>
+                        <a @click="showDeleteDialog(post.id)" class="item" title="Remove">
+                            <i class="fi-trash"></i>
+                        </a>
                     </td>
                 </tr>
             </tbody>
@@ -91,6 +90,31 @@
                     .then(response => {
                         this.posts = response.data.posts;
                         this.queryParams = response.data.query;
+                    })
+                    .catch(error => {
+                        console.log('Error: ' + error);
+                    });
+            },
+            showDeleteDialog(id) {
+                // $swal function calls SweetAlert into the application with the specified configuration.
+                this.$swal({
+                    title: `Are you sure you want to delete #${id}?`,
+                    text: 'You won\'t be able to revert this!',
+                    type: 'error',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, cancel!',
+                }).then((result) => {
+                    this.deletePost(id);
+                })
+            },
+            deletePost(id) {
+                axios.post(`/api/posts/delete/${id}`, {
+                        'id': id
+                    })
+                    .then(response => {
+                        this.posts = response.data.posts;
                     })
                     .catch(error => {
                         console.log('Error: ' + error);

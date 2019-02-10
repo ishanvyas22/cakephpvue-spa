@@ -19,6 +19,7 @@
     "form-serialize": "^0.7.2",
     "laravel-mix": "^3.0.0",
     "vue": "^2.5.18",
-    "vue-router": "^3.0.2"
+    "vue-router": "^3.0.2",
+    "vue-sweetalert2": "^1.6.3"
   }
 }

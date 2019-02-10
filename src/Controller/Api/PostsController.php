@@ -12,6 +12,11 @@ use App\Controller\AppController;
  */
 class PostsController extends AppController
 {
+    /**
+     * Iniitilization hook.
+     *
+     * @return void
+     */
     public function initialize()
     {
         parent::initialize();
@@ -19,6 +24,11 @@ class PostsController extends AppController
         $this->viewBuilder()->setLayout(false);
     }
 
+    /**
+     * Get table heading
+     *
+     * @return void
+     */
     public function getTableHeading()
     {
         // $fields = [
@@ -96,8 +106,6 @@ class PostsController extends AppController
      */
     public function add()
     {
-
-
         $post = $this->Posts->newEntity();
         if ($this->request->is('post')) {
             $post = $this->Posts->patchEntity($post, $this->request->getData());
@@ -161,11 +169,23 @@ class PostsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $post = $this->Posts->get($id);
         if ($this->Posts->delete($post)) {
-            $this->Flash->success(__('The post has been deleted.'));
+            return $this->getResponse()
+                ->withType('application/json')
+                ->withStatus(200)
+                ->withStringBody(json_encode([
+                    'message' => __('The post has been deleted.'),
+                    'success' => true,
+                    'url' => '/posts'
+                ]));
         } else {
-            $this->Flash->error(__('The post could not be deleted. Please, try again.'));
+            return $this->getResponse()
+                ->withType('application/json')
+                ->withStatus(204)
+                ->withStringBody(json_encode([
+                    'message' => __('The post has been deleted.'),
+                    'success' => false,
+                    'url' => '/posts'
+                ]));
         }
-
-        return $this->redirect(['action' => 'index']);
     }
 }
