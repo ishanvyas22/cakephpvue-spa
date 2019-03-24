@@ -20481,15 +20481,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 window.axios = __WEBPACK_IMPORTED_MODULE_2_axios___default.a;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-var token = document.head.querySelector('[name="_csrfToken"]');
-console.log(token);
-
-if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-}
-
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_sweetalert2__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('app', __WEBPACK_IMPORTED_MODULE_5__views_App_vue___default.a);
 var router = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
@@ -34261,15 +34252,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      content: ''
+      content: '',
+      postUrl: '',
+      title: '',
+      description: '',
+      errors: {}
     };
   },
-  mounted: function mounted() {
-    this.getAddPostView(this.$route.query);
+  mounted: function mounted() {// this.getAddPostView(this.$route.query);
   },
   methods: {
     getAddPostView: function getAddPostView(query) {
@@ -34279,6 +34292,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         params: query
       }).then(function (response) {
         _this.content = response.data;
+        var token = document.querySelector('[name="_csrfToken"]');
+        console.log(token);
+
+        if (token) {
+          window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+        } else {
+          console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+        }
       }).catch(function (error) {
         console.log('Error: ' + error);
       });
@@ -34314,6 +34335,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.$router.go(-1);
         e.preventDefault();
       }
+    },
+    onSubmit: function onSubmit(event) {
+      var _this3 = this;
+
+      var data = __WEBPACK_IMPORTED_MODULE_0_form_serialize___default()(event.target, {
+        hash: false,
+        empty: true
+      });
+      axios.post('/api/posts/save', data, {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      }).then(function (response) {
+        // Redirect on success
+        console.log(response.data); // if (response.data.success) {
+        //     this.$router.push({ path: response.data.url });
+        // }
+      }).catch(function (error) {
+        _this3.errors = error.response.data.errors;
+      });
     }
   }
 });
@@ -34326,14 +34367,118 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {
-    domProps: { innerHTML: _vm._s(_vm.content) },
-    on: {
-      "!click": function($event) {
-        return _vm.handleClick($event)
-      }
-    }
-  })
+  return _c(
+    "div",
+    { staticClass: "posts form large-9 medium-8 columns content" },
+    [
+      _c(
+        "form",
+        {
+          attrs: {
+            method: "post",
+            action: _vm.postUrl,
+            novalidate: "novalidate"
+          },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.onSubmit($event)
+            }
+          }
+        },
+        [
+          _c("fieldset", [
+            _c("legend", [_vm._v("Add Post")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "input text required " }, [
+              _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.title,
+                    expression: "title"
+                  }
+                ],
+                attrs: {
+                  type: "text",
+                  name: "title",
+                  required: "required",
+                  maxlength: "255",
+                  id: "title"
+                },
+                domProps: { value: _vm.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.title = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "error-message" })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "input textarea required " }, [
+              _c("label", { attrs: { for: "description" } }, [
+                _vm._v("Description")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.description,
+                    expression: "description"
+                  }
+                ],
+                attrs: {
+                  name: "description",
+                  required: "required",
+                  id: "description",
+                  rows: "5"
+                },
+                domProps: { value: _vm.description },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.description = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "error-message" })
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "button radius shadow primary",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Submit")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "button shadow radius right mr-6",
+                attrs: { name: "goBack" }
+              },
+              [_vm._v("Back")]
+            )
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

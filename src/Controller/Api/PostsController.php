@@ -2,6 +2,7 @@
 namespace App\Controller\Api;
 
 use App\Controller\AppController;
+use App\Controller\Traits\ResponseTrait;
 
 /**
  * Posts Controller
@@ -12,6 +13,8 @@ use App\Controller\AppController;
  */
 class PostsController extends AppController
 {
+    use ResponseTrait;
+
     /**
      * Iniitilization hook.
      *
@@ -76,9 +79,7 @@ class PostsController extends AppController
 
         $data['posts'] = $this->paginate($this->Posts);
 
-        return $this->getResponse()
-            ->withType('application/json')
-            ->withStringBody(json_encode($data));
+        return $this->setJsonResponse($data);
     }
 
     /**
@@ -94,36 +95,55 @@ class PostsController extends AppController
             'contain' => []
         ]);
 
-        return $this->getResponse()
-            ->withType('application/json')
-            ->withStringBody(json_encode(['post' => $post]));
+        return $this->setJsonResponse(['post' => $post]);
     }
 
     /**
-     * Add method
+     * Handle add action used for `GET` request
      *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     * @return json
      */
     public function add()
     {
-        $post = $this->Posts->newEntity();
-        if ($this->request->is('post')) {
-            $post = $this->Posts->patchEntity($post, $this->request->getData());
-            if ($result = $this->Posts->save($post)) {
-                $this->Flash->success(__('The post has been saved.'));
+        return $this->setJsonResponse(['post' => $post]);
+    }
 
-                return $this->getResponse()
-                    ->withType('application/json')
-                    ->withStatus(201)
-                    ->withStringBody(json_encode([
-                        'data' => $result,
-                        'success' => true,
-                        'url' => '/posts'
-                    ]));
-            }
-            $this->Flash->error(__('The post could not be saved. Please, try again.'));
+    /**
+     * Save request data into database,
+     * Returns validation error(s) if unable to save.
+     *
+     * @return string|json
+     */
+    public function save()
+    {
+        if (! $this->request->is('post')) {
+            return $this->setJsonResponse([
+                'error' => true,
+                'message' => 'Invalid request!'
+            ]);
         }
-        $this->set(compact('post'));
+
+        $post = $this->Posts->newEntity();
+        $post = $this->Posts->patchEntity($post, $this->request->getData());
+        if ($result = $this->Posts->save($post)) {
+            return $this->setJsonResponse(
+                [
+                    'data' => $result,
+                    'success' => true,
+                    'url' => '/posts',
+                    'message' => __('The post has been saved.')
+                ],
+                201
+            );
+        }
+
+        return $this->setJsonResponse(
+            [
+                'errors' => $post->getErrors(),
+                'message' => __('The post could not be saved. Please, try again.')
+            ],
+            422
+        );
     }
 
     /**

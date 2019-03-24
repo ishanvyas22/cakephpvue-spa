@@ -2,9 +2,11 @@
 namespace App\Model\Table;
 
 use Cake\ORM\Query;
-use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\Event\Event;
+use Cake\ORM\RulesChecker;
 use Cake\Validation\Validator;
+use Cake\Datasource\EntityInterface;
 
 /**
  * Posts Model
@@ -54,7 +56,7 @@ class PostsTable extends Table
 
         $validator
             ->scalar('title')
-            ->maxLength('title', 255)
+            ->minLength('title', 5)
             ->requirePresence('title', 'create')
             ->notEmpty('title');
 
