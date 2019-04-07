@@ -19,6 +19,7 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
     ```bash
     bin/cake migrations migrate
     ```
+5. Start [CakePHP web server](https://book.cakephp.org/3.0/en/installation.html#development-server) or [create v-host](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04) to run this app.
 
 ## Development
 1. Install npm packages
