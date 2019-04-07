@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller\Api;
 
 use App\Controller\AppController;
@@ -139,7 +140,7 @@ class PostsController extends AppController
 
         return $this->setJsonResponse(
             [
-                'errors' => $post->getErrors(),
+                'errors' => $post->getValidationErrors(),
                 'message' => __('The post could not be saved. Please, try again.')
             ],
             422
