@@ -28,8 +28,6 @@
     export default {
         data() {
             return {
-                content: '',
-                postUrl: '',
                 title: '',
                 description: '',
                 errors: new Errors()
