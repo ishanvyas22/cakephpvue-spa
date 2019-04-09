@@ -151,7 +151,7 @@ class PostsController extends AppController
      * Edit method
      *
      * @param string|null $id Post id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
+     * @return json Returns posts data.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
@@ -159,23 +159,50 @@ class PostsController extends AppController
         $post = $this->Posts->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $post = $this->Posts->patchEntity($post, $this->request->getData());
-            if ($result = $this->Posts->save($post)) {
-                $this->Flash->success(__('The post has been saved.'));
 
-                return $this->getResponse()
-                    ->withType('application/json')
-                    ->withStatus(200)
-                    ->withStringBody(json_encode([
-                        'data' => $result,
-                        'success' => true,
-                        'url' => '/posts'
-                    ]));
-            }
-            $this->Flash->error(__('The post could not be saved. Please, try again.'));
+        return $this->setJsonResponse(
+            [
+                'post' => $post,
+                'success' => true,
+            ]
+        );
+    }
+
+    /**
+     * Update existing data for given id.
+     *
+     * @param int $id Post id.
+     * @return json Returns success/error data depend on post data
+     */
+    public function update($id)
+    {
+        if (! $this->request->is(['patch', 'post', 'put'])) {
+            return $this->setJsonResponse([
+                'error' => true,
+                'message' => 'Invalid request!'
+            ]);
         }
-        $this->set(compact('post'));
+
+        $result = $this->Posts->updatePost($id, $this->request->getData());
+
+        if (isset($result['errors'])) {
+            return $this->setJsonResponse(
+                [
+                    'errors' => $result['errors'],
+                    'message' => __('The post could not be saved. Please, try again.')
+                ],
+                422
+            );
+        }
+
+        return $this->setJsonResponse(
+            [
+                'data' => $result,
+                'success' => true,
+                'url' => '/posts',
+                'message' => __('The post has been updated.')
+            ]
+        );
     }
 
     /**

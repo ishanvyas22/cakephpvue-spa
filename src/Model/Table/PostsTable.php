@@ -68,4 +68,26 @@ class PostsTable extends Table
 
         return $validator;
     }
+
+    /**
+     * Update posts data.
+     *
+     * @param  int $id Post id.
+     * @param  array $data Data to update.
+     * @return array
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function updatePost($id, $data)
+    {
+        $post = $this->get($id, [
+            'contain' => []
+        ]);
+
+        $post = $this->patchEntity($post, $data);
+        if ($result = $this->save($post)) {
+            return $result;
+        }
+
+        return ['errors' => $post->getValidationErrors()];
+    }
 }

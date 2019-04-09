@@ -1,61 +1,86 @@
 <template>
-    <div v-html="content" v-on:click.capture="handleClick"></div>
+    <div class="posts form large-9 medium-8 columns content">
+        <form method="post" :action="postUrl" novalidate="novalidate" @submit.prevent="onSubmit" @keydown="errors.clear($event.target.name)">
+            <fieldset>
+                <legend>Edit Post</legend>
+                <div class="input text required" v-bind:class="{ 'error': errors.has('title') }">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" v-model="title">
+                    <div v-show="errors.has('title')" class="error-message" v-text="errors.get('title')"></div>
+                </div>
+                <div class="input textarea required" v-bind:class="{ 'error': errors.has('description') }">
+                    <label for="description">Description</label>
+                    <textarea name="description" rows="5" v-model="description"></textarea>
+                    <div v-show="errors.has('description')" class="error-message" v-text="errors.get('description')"></div>
+                </div>
+                <button type="submit" class="button radius shadow primary" :disabled="errors.any()">Submit</button>
+
+                <a class="button shadow radius right mr-6" name="goBack" @click.prevent="$router.go(-1)">Back</a>
+            </fieldset>
+        </form>
+    </div>
 </template>
 
 <script>
     import formSerialize from 'form-serialize';
+    import Errors from '../../helpers/FormErrors.js';
 
     export default {
         data() {
             return {
-                content: '',
-                id: null
+                id: null,
+                postUrl: '',
+                title: '',
+                description: '',
+                errors: new Errors()
             };
         },
         mounted() {
             this.id = this.$route.params.id;
 
-            this.getEditPostView(this.$route.query);
+            this.getPost(this.$route.query);
         },
         methods: {
-            getEditPostView(query) {
+            getPost(query) {
                 axios.get(`/api/posts/edit/${this.id}`, { params: query })
                     .then(response => {
-                        this.content = response.data;
+                        this.title = response.data.post.title;
+                        this.description = response.data.post.description;
                     })
                     .catch(error => {
-                        console.log('Error: ' + error);
+                        console.log(error);
                     });
             },
-            handleClick( e ) {
-                if ( e.target.tagName == 'BUTTON' && e.target.type == 'submit' ) {
-                    let data = formSerialize( e.target.form, {
-                        hash: false, empty: true
-                    } );
+            onSubmit(event) {
+                let data = formSerialize(event.target, {
+                    hash: false,
+                    empty: true
+                });
 
-                    data += '&' + e.target.name + '='
-                        + encodeURIComponent( e.target.value );
-
-                    axios.post( `/api/posts/edit/${this.id}`, data, {
-                        headers: { 'X-Requested-With': 'XMLHttpRequest' }
-                    } ).then( response => {
+                axios.post(`/api/posts/update/${this.id}`, data, {
+                        headers: {'X-Requested-With': 'XMLHttpRequest'}
+                    })
+                    .then(response => {
                         // Redirect on success
                         if (response.data.success) {
+                            this.$notify({
+                                group: 'default',
+                                type: 'success',
+                                text: response.data.message
+                            });
+
                             this.$router.push({ path: response.data.url });
                         }
+                    })
+                    .catch(error => {
+                        this.$notify({
+                            group: 'default',
+                            type: 'error',
+                            text: error.response.data.message
+                        });
 
-                        this.content = response.data;
-                    } );
-
-                    e.preventDefault();
-                }
-
-                // Redirect to last page if tag `a` tag with `goBack` name clicked
-                if ( e.target.tagName == 'A' && e.target.name == 'goBack' ) {
-                    this.$router.go(-1);
-
-                    e.preventDefault();
-                }
+                        this.errors.add(error.response.data.errors);
+                    });
             }
         },
     }

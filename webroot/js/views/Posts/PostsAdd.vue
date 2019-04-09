@@ -28,6 +28,7 @@
     export default {
         data() {
             return {
+                postUrl: '',
                 title: '',
                 description: '',
                 errors: new Errors()
@@ -46,10 +47,24 @@
                     .then(response => {
                         // Redirect on success
                         if (response.data.success) {
+                            this.$notify({
+                                group: 'default',
+                                type: 'success',
+                                text: response.data.message
+                            });
+
                             this.$router.push({ path: response.data.url });
                         }
                     })
-                    .catch(error => this.errors.add(error.response.data.errors));
+                    .catch(error => {
+                        this.$notify({
+                            group: 'default',
+                            type: 'error',
+                            text: error.response.data.message
+                        });
+
+                        this.errors.add(error.response.data.errors);
+                    });
             }
         },
     }
