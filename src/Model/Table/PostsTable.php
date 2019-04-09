@@ -75,19 +75,45 @@ class PostsTable extends Table
      * @param  int $id Post id.
      * @param  array $data Data to update.
      * @return array
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * @throws \Exception When exception is found.
      */
     public function updatePost($id, $data)
     {
-        $post = $this->get($id, [
-            'contain' => []
-        ]);
+        try {
+            $post = $this->get($id, [
+                'contain' => []
+            ]);
 
-        $post = $this->patchEntity($post, $data);
-        if ($result = $this->save($post)) {
-            return $result;
+            $post = $this->patchEntity($post, $data);
+            if ($result = $this->save($post)) {
+                return $result;
+            }
+
+            return ['errors' => $post->getValidationErrors()];
+        } catch (\Exception $e) {
+            return ['errors' => $e->getMessage()];
         }
+    }
 
-        return ['errors' => $post->getValidationErrors()];
+    /**
+     * Delete post from table.
+     *
+     * @param  int $id Post id.
+     * @return bool
+     * @throws \Exception When exception is found.
+     */
+    public function remove($id)
+    {
+        try {
+            $post = $this->get($id);
+
+            if (! $this->delete($post)) {
+                throw new \Exception(__('Unable to delete post'), 422);
+            }
+
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

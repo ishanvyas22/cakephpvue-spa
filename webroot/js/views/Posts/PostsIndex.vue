@@ -106,7 +106,9 @@
                     confirmButtonText: 'Yes, delete it!',
                     cancelButtonText: 'No, cancel!',
                 }).then((result) => {
-                    this.deletePost(id);
+                    if (result.value) {
+                        this.deletePost(id);
+                    }
                 })
             },
             deletePost(id) {
@@ -114,10 +116,20 @@
                         'id': id
                     })
                     .then(response => {
-                        this.posts = response.data.posts;
+                        this.$notify({
+                            group: 'default',
+                            type: 'success',
+                            text: response.data.message
+                        });
+
+                        this.getPosts(this.$route.query);
                     })
                     .catch(error => {
-                        console.log('Error: ' + error);
+                        this.$notify({
+                            group: 'default',
+                            type: 'error',
+                            text: error.response.data.message
+                        });
                     });
             }
         },

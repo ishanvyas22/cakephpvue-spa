@@ -29,21 +29,6 @@ class PostsController extends AppController
     }
 
     /**
-     * Get table heading
-     *
-     * @return void
-     */
-    public function getTableHeading()
-    {
-        // $fields = [
-        //     [
-        //         'title' => 'ID',
-        //         'sortable' => true
-        //     ]
-        // ];
-    }
-
-    /**
      * Index method
      *
      * @return \Cake\Http\Response|void
@@ -96,16 +81,6 @@ class PostsController extends AppController
             'contain' => []
         ]);
 
-        return $this->setJsonResponse(['post' => $post]);
-    }
-
-    /**
-     * Handle add action used for `GET` request
-     *
-     * @return json
-     */
-    public function add()
-    {
         return $this->setJsonResponse(['post' => $post]);
     }
 
@@ -214,26 +189,27 @@ class PostsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $post = $this->Posts->get($id);
-        if ($this->Posts->delete($post)) {
-            return $this->getResponse()
-                ->withType('application/json')
-                ->withStatus(200)
-                ->withStringBody(json_encode([
-                    'message' => __('The post has been deleted.'),
-                    'success' => true,
-                    'url' => '/posts'
-                ]));
-        } else {
-            return $this->getResponse()
-                ->withType('application/json')
-                ->withStatus(204)
-                ->withStringBody(json_encode([
-                    'message' => __('The post has been deleted.'),
-                    'success' => false,
-                    'url' => '/posts'
-                ]));
+        if (! $this->request->is(['post', 'delete'])) {
+            return $this->setJsonResponse([
+                'error' => true,
+                'message' => 'Invalid request!'
+            ]);
         }
+
+        if (! $this->Posts->remove($id)) {
+            return $this->setJsonResponse(
+                [
+                    'error' => true,
+                    'message' => __('The post could not be deleted. Please, try again.'),
+                ],
+                422
+            );
+        }
+
+        return $this->setJsonResponse([
+            'message' => __('The post has been deleted.'),
+            'success' => true,
+            'url' => '/posts'
+        ]);
     }
 }
