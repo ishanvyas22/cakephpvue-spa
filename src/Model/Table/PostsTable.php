@@ -1,12 +1,12 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
-use Cake\ORM\Table;
-use Cake\Event\Event;
-use Cake\ORM\RulesChecker;
-use Cake\Validation\Validator;
 use Cake\Datasource\EntityInterface;
+use Cake\Event\Event;
+use Cake\ORM\Query;
+use Cake\ORM\RulesChecker;
+use Cake\ORM\Table;
+use Cake\Validation\Validator;
 
 /**
  * Posts Model
