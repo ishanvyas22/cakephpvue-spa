@@ -6,9 +6,9 @@
             </div>
             <div class="columns large-6 clearfix">
                 <div class="button-group right">
-                    <router-link
-                        :to="{ path: `/posts/delete/${post.id}` }"
-                        class="shadow radius large"><i class="fi-trash large"></i></router-link>
+                    <a @click="showDeleteDialog(post.id)" class="shadow radius large" title="Remove">
+                        <i class="fi-trash large"></i>
+                    </a>
                     <router-link
                         :to="{ path: `/posts/edit/${post.id}` }"
                         class="shadow radius large"><i class="fi-page-edit large"></i></router-link>
@@ -100,6 +100,43 @@
                     })
                     .catch(error => {
                         console.log('Error: ' + error);
+                    });
+            },
+            showDeleteDialog(id) {
+                // $swal function calls SweetAlert into the application with the specified configuration.
+                this.$swal({
+                    title: `Are you sure you want to delete #${id}?`,
+                    text: 'You won\'t be able to revert this!',
+                    type: 'error',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, cancel!',
+                }).then((result) => {
+                    if (result.value) {
+                        this.deletePost(id);
+                    }
+                })
+            },
+            deletePost(id) {
+                axios.post(`/api/posts/delete/${id}`, {
+                        'id': id
+                    })
+                    .then(response => {
+                        this.$notify({
+                            group: 'default',
+                            type: 'success',
+                            text: response.data.message
+                        });
+
+                        this.$router.push({ path: '/posts' });
+                    })
+                    .catch(error => {
+                        this.$notify({
+                            group: 'default',
+                            type: 'error',
+                            text: error.response.data.message
+                        });
                     });
             }
         },
