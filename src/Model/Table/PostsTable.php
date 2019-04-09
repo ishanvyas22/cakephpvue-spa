@@ -70,7 +70,7 @@ class PostsTable extends Table
     }
 
     /**
-     * Update posts data.
+     * Update post data.
      *
      * @param  int $id Post id.
      * @param  array $data Data to update.
