@@ -47,6 +47,9 @@ use Cake\Routing\Route\DashedRoute;
 Router::defaultRouteClass(DashedRoute::class);
 
 Router::prefix('api', function ($routes) {
+    $routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);
+    $routes->connect('/:controller/:action/*', [], ['routeClass' => 'DashedRoute']);
+
     $routes->fallbacks(DashedRoute::class);
 });
 
@@ -54,6 +57,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/:page', ['controller' => 'Spa', 'action' => 'index']);
     $routes->connect('/', ['controller' => 'Spa', 'action' => 'index', 'home']);
     $routes->connect('/pages/*', ['controller' => 'Spa', 'action' => 'index']);
+    $routes->connect('/:page/*', ['controller' => 'Spa', 'action' => 'index']);
 
     // $routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);
     // $routes->connect('/:controller/:action/*', [], ['routeClass' => 'DashedRoute']);

@@ -1,6 +1,8 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\Datasource\EntityInterface;
+use Cake\Event\Event;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -54,14 +56,64 @@ class PostsTable extends Table
 
         $validator
             ->scalar('title')
-            ->maxLength('title', 255)
+            ->minLength('title', 5)
             ->requirePresence('title', 'create')
             ->notEmpty('title');
 
         $validator
             ->scalar('description')
-            ->allowEmpty('description');
+            ->allowEmpty('description')
+            ->requirePresence('description', 'create')
+            ->notEmpty('description');
 
         return $validator;
+    }
+
+    /**
+     * Update post data.
+     *
+     * @param  int $id Post id.
+     * @param  array $data Data to update.
+     * @return \App\Model\Entity\Post|array
+     * @throws \Exception When exception is found.
+     */
+    public function updatePost($id, $data)
+    {
+        try {
+            $post = $this->get($id, [
+                'contain' => []
+            ]);
+
+            $post = $this->patchEntity($post, $data);
+            if ($result = $this->save($post)) {
+                return $result;
+            }
+
+            return ['errors' => $post->getValidationErrors()];
+        } catch (\Exception $e) {
+            return ['errors' => $e->getMessage()];
+        }
+    }
+
+    /**
+     * Delete post from table.
+     *
+     * @param  int $id Post id.
+     * @return bool
+     * @throws \Exception When exception is found.
+     */
+    public function remove($id)
+    {
+        try {
+            $post = $this->get($id);
+
+            if (! $this->delete($post)) {
+                throw new \Exception(__('Unable to delete post'), 422);
+            }
+
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

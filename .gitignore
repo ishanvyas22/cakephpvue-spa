@@ -42,3 +42,5 @@ nbproject/*
 # Node Specific files #
 #######################
 /node_modules/*
+
+/.github/*

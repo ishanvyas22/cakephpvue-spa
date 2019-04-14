@@ -400,11 +400,6 @@ fieldset legend {
     box-shadow: none;
 }
 
-.form button:hover, .form button:focus {
-    background: #BE840B;
-    box-shadow: none;
-}
-
 button {
     background: #966600;
 }
@@ -521,4 +516,19 @@ div.message.hidden {
 table td {
     vertical-align: top;
     word-break: break-all;
+}
+
+.index table tbody tr .actions a {
+    margin: 0.25rem;
+    font-size: 16px;
+}
+
+div.button-group.right a i {
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 2em;
+    margin: 7px 10px;
+}
+
+.mr-6 {
+    margin-right: 6px;
 }

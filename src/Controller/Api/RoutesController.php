@@ -12,17 +12,26 @@ use App\Controller\AppController;
 class RoutesController extends AppController
 {
 
+    /**
+     * Get sidebar array
+     *
+     * @return string
+     */
     public function getSidebar()
     {
         $sidebar = [
             [
+                'title' => 'Dashboard',
+                'routeName' => 'dashboard',
+            ],
+            [
                 'title' => 'Posts',
                 'routeName' => 'posts',
             ],
-            [
-                'title' => 'Users',
-                'routeName' => 'users',
-            ],
+            // [
+            //     'title' => 'Users',
+            //     'routeName' => 'users',
+            // ],
         ];
 
         return $this->getResponse()

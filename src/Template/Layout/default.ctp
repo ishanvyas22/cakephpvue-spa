@@ -1,5 +1,5 @@
 <?php
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'CakeVue Application';
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,23 +12,31 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
+    <?php
+    echo $this->Html->css('base.css');
+    echo $this->Html->css('foundation-icons/foundation-icons.css');
+    echo $this->Html->css('style.css');
+    ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div id="app">
+    <span id="app">
+        <top-header></top-header>
+
         <app></app>
 
         <?php
         // echo $this->fetch('content');
         ?>
-    </div>
+
+        <footer>
+        </footer>
+    </span>
 </body>
 
-<script type="text/javascript" src="js/dist/app.js"></script>
+<script type="text/javascript" src="/js/dist/app.js"></script>
 
 </html>

@@ -15,8 +15,7 @@
             };
         },
         mounted() {
-            // api/routes/get-sidebar
-            axios.get('api/routes/get-sidebar')
+            axios.get('/api/routes/get-sidebar')
                 .then(response => {
                     this.actions = response.data;
                 })
