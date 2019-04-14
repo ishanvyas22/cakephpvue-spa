@@ -25,7 +25,7 @@ class PostsController extends AppController
     {
         parent::initialize();
 
-        $this->viewBuilder()->setLayout(false);
+        $this->viewBuilder()->setLayout('');
     }
 
     /**
@@ -88,7 +88,7 @@ class PostsController extends AppController
      * Save request data into database,
      * Returns validation error(s) if unable to save.
      *
-     * @return string|json
+     * @return string
      */
     public function save()
     {
@@ -126,7 +126,7 @@ class PostsController extends AppController
      * Edit method
      *
      * @param string|null $id Post id.
-     * @return json Returns posts data.
+     * @return string Returns posts data.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
@@ -147,7 +147,7 @@ class PostsController extends AppController
      * Update existing data for given id.
      *
      * @param int $id Post id.
-     * @return json Returns success/error data depend on post data
+     * @return string Returns success/error data depend on post data
      */
     public function update($id)
     {
@@ -183,7 +183,7 @@ class PostsController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Post id.
+     * @param int|null $id Post id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */

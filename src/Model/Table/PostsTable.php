@@ -74,7 +74,7 @@ class PostsTable extends Table
      *
      * @param  int $id Post id.
      * @param  array $data Data to update.
-     * @return array
+     * @return \App\Model\Entity\Post|array
      * @throws \Exception When exception is found.
      */
     public function updatePost($id, $data)

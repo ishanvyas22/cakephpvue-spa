@@ -15,7 +15,7 @@ class RoutesController extends AppController
     /**
      * Get sidebar array
      *
-     * @return json
+     * @return string
      */
     public function getSidebar()
     {

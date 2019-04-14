@@ -32,14 +32,14 @@ trait ResponseTrait
      * Prepare data to send response as a json response
      *
      * @param  mixed $data Data to prepare
-     * @return string|json
+     * @return string
      */
     private function prepareData($data)
     {
         if (is_array($data)) {
             $data = json_encode($data);
         } elseif (is_object($data)) {
-            $data = json_decode($data);
+            $data = json_encode($data);
         }
 
         return $data;
