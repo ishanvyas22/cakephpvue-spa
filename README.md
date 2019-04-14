@@ -1,5 +1,6 @@
 # A Basic CakePHP + VueJS Single Page Application
 [![Build Status](https://travis-ci.com/ishanvyas22/cakephpvue-spa.svg?branch=develop)](https://travis-ci.com/ishanvyas22/cakephpvue-spa)
+
 A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton to quickly get started with cakephp and vuejs.
 
 ## Installation
