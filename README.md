@@ -1,5 +1,6 @@
 # A Basic CakePHP + VueJS Single Page Application
 [![Build Status](https://travis-ci.com/ishanvyas22/cakephpvue-spa.svg?branch=develop)](https://travis-ci.com/ishanvyas22/cakephpvue-spa)
+[![License](https://poser.pugx.org/ishanvyas22/cakephpvue-spa/license)](https://packagist.org/packages/ishanvyas22/cakephpvue-spa)
 
 A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton to quickly get started with cakephp and vuejs.
 
@@ -7,10 +8,6 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
 1. Clone project into your server by below command
     ```bash
     git clone git@github.com:ishanvyas22/cakephpvue-spa.git
-    ```
-2. Change branch to `develop` from `master`
-    ```bash
-    git checkout develop
     ```
 2. Install composer and npm dependencies
     ```bash
