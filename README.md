@@ -5,7 +5,12 @@
 A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton to quickly get started with cakephp and vuejs.
 
 ## Installation
-1. Clone project into your server by below command
+1. Get project into your system
+    Via [composer](https://packagist.org/packages/ishanvyas22/cakephpvue-spa):
+    ```bash
+    composer create-project ishanvyas22/cakephpvue-spa
+    ```
+    Via cloning the project into your server:
     ```bash
     git clone git@github.com:ishanvyas22/cakephpvue-spa.git
     ```
