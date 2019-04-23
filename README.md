@@ -6,6 +6,7 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
 
 ## Installation
 1. Get project into your system
+
     Via [composer](https://packagist.org/packages/ishanvyas22/cakephpvue-spa):
     ```bash
     composer create-project ishanvyas22/cakephpvue-spa
