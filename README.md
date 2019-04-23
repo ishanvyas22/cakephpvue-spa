@@ -19,8 +19,8 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
     ```bash
     composer install
     ```
-3. Change database connection in your `config/app.php` file
-4. Migrate the database
+3. Connect with your [database](https://book.cakephp.org/3.0/en/orm/database-basics.html#configuration)
+4. Run the [migrations](https://book.cakephp.org/3.0/en/migrations.html#overview)
     ```bash
     bin/cake migrations migrate
     ```
