@@ -13,7 +13,7 @@
     "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "author": "Ishan Vyas",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "axios": "^0.18.0",
     "form-serialize": "^0.7.2",
