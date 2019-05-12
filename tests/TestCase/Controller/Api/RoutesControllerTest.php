@@ -11,15 +11,6 @@ class RoutesControllerTest extends IntegrationTestCase
 {
 
     /**
-     * Fixtures
-     *
-     * @var array
-     */
-    public $fixtures = [
-        'app.routes'
-    ];
-
-    /**
      * Test index method
      *
      * @return void
