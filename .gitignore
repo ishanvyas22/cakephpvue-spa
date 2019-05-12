@@ -5,7 +5,6 @@
 /logs/*
 /tmp/*
 /vendor/*
-phpunit.phar
 
 # OS generated files #
 ######################
