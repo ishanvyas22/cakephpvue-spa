@@ -34,8 +34,8 @@ matrix:
 
 before_script:
   - if [[ $PHPCS = 1 ]]; then composer require cakephp/cakephp-codesniffer:^3.0; fi
-  - if [[ $DEFAULT = 1 ]]; then composer install; fi
-  - if [[ $DEFAULT = 1 ]]; then composer test-setup; fi
+  - if [[ $DEFAULT = 1 || $PHPSTAN=1 ]]; then composer install; fi
+  - if [[ $DEFAULT = 1 || $CODECOVERAGE=1 ]]; then composer test-setup; fi
   - if [[ $DEFAULT = 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
 
 script:
