@@ -15,7 +15,6 @@
         "cakephp/bake": "^1.1",
         "cakephp/cakephp-codesniffer": "^3.0",
         "cakephp/debug_kit": "^3.15.0",
-        "phpstan/phpstan": "^0.11.5",
         "psy/psysh": "@stable"
     },
     "autoload": {
@@ -41,7 +40,9 @@
         "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
         "test-setup": "[ ! -f phpunit.phar ] && wget https://phar.phpunit.de/phpunit-6.5.8.phar && mv phpunit-6.5.8.phar phpunit.phar || true",
         "test": "php phpunit.phar --colors=always",
-        "test-coverage": "php phpunit.phar --coverage-clover=clover.xml"
+        "test-coverage": "php phpunit.phar --coverage-clover=clover.xml",
+        "phpstan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan && mv composer.backup composer.json",
+        "phpstan": "phpstan analyse -l 5 src/"
     },
     "prefer-stable": true,
     "config": {
