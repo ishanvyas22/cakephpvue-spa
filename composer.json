@@ -40,7 +40,8 @@
         "cs-check": "phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
         "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
         "test-setup": "[ ! -f phpunit.phar ] && wget https://phar.phpunit.de/phpunit-6.5.8.phar && mv phpunit-6.5.8.phar phpunit.phar || true",
-        "test": "php phpunit.phar --colors=always"
+        "test": "php phpunit.phar --colors=always",
+        "test-coverage": "php phpunit.phar --coverage-clover=clover.xml"
     },
     "prefer-stable": true,
     "config": {
