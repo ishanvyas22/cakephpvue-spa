@@ -23,9 +23,9 @@ class PostsTableTest extends TestCase
      *
      * @var array
      */
-    // public $fixtures = [
-    //     'app.posts'
-    // ];
+    public $fixtures = [
+        'app.posts'
+    ];
 
     /**
      * setUp method
@@ -35,8 +35,8 @@ class PostsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        // $config = TableRegistry::getTableLocator()->exists('Posts') ? [] : ['className' => PostsTable::class];
-        // $this->Posts = TableRegistry::getTableLocator()->get('Posts', $config);
+        $config = TableRegistry::getTableLocator()->exists('Posts') ? [] : ['className' => PostsTable::class];
+        $this->Posts = TableRegistry::getTableLocator()->get('Posts', $config);
     }
 
     /**
@@ -46,7 +46,7 @@ class PostsTableTest extends TestCase
      */
     public function tearDown()
     {
-        // unset($this->Posts);
+        unset($this->Posts);
 
         parent::tearDown();
     }

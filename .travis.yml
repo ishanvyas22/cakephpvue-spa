@@ -16,6 +16,13 @@ php:
   - 7.1
   - 7.2
 
+env:
+  matrix:
+    - DB=mysql DATABASE_URL='mysql://root@127.0.0.1/cakevue_spa?init[]=SET sql_mode = ""'
+
+services:
+  - mysql
+
 matrix:
   fast_finish: true
 
@@ -33,10 +40,12 @@ matrix:
       env: CODECOVERAGE=1 DEFAULT=0
 
 before_script:
+  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE cakevue_spa;'; fi
   - if [[ $PHPCS = 1 ]]; then composer require cakephp/cakephp-codesniffer:^3.0; fi
   - if [[ $DEFAULT = 1 ]]; then composer install --no-interaction; fi
   - if [[ $DEFAULT = 1 ]]; then composer test-setup; fi
   - if [[ $DEFAULT = 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
+  - if [[ $DEFAULT = 1 ]]; then bin/cake migrations migrate; fi
 
   - if [[ $CODECOVERAGE = 1 ]]; then composer install --no-interaction; fi
   - if [[ $CODECOVERAGE = 1 ]]; then composer test-setup; fi
