@@ -15,9 +15,9 @@ class PostsControllerTest extends IntegrationTestCase
      *
      * @var array
      */
-    public $fixtures = [
-        'app.posts'
-    ];
+    // public $fixtures = [
+    //     'app.posts'
+    // ];
 
     /**
      * Test index method
