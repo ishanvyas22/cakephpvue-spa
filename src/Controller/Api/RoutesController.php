@@ -2,6 +2,7 @@
 namespace App\Controller\Api;
 
 use App\Controller\AppController;
+use App\Controller\Traits\ResponseTrait;
 
 /**
  * Routes Controller
@@ -11,6 +12,7 @@ use App\Controller\AppController;
  */
 class RoutesController extends AppController
 {
+    use ResponseTrait;
 
     /**
      * Get sidebar array
