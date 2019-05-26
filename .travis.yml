@@ -40,7 +40,7 @@ matrix:
     #   env: PHPSTAN=1 DEFAULT=0
 
     - php: 7.2
-      env: CODECOVERAGE=1 DEFAULT=0
+      env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_URL='mysql://root@127.0.0.1/test_cakevue_spa?init[]=SET sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"' DB_HOST='127.0.0.1' DB_USERNAME='root' DB_PASSWORD='' DB_NAME='test_cakevue_spa'
 
 before_script:
   - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE IF NOT EXISTS test_cakevue_spa;'; fi
