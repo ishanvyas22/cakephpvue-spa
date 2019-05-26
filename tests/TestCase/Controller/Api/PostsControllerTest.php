@@ -15,9 +15,23 @@ class PostsControllerTest extends IntegrationTestCase
      *
      * @var array
      */
-    // public $fixtures = [
-    //     'app.posts'
-    // ];
+    public $fixtures = [
+        'app.posts'
+    ];
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->configRequest([
+            'headers' => [
+                'Accept' => 'application/json'
+            ]
+        ]);
+    }
 
     /**
      * Test index method
@@ -26,7 +40,15 @@ class PostsControllerTest extends IntegrationTestCase
      */
     public function testIndex()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/api/posts');
+
+        $response = $this->_getBodyAsString();
+        $responseArray = json_decode($response, true);
+
+        $this->assertEquals(2, count($responseArray));
+        $this->assertEquals(3, count($responseArray['posts']));
+        $this->assertEquals(4, count($responseArray['query']));
+        $this->assertResponseOk();
     }
 
     /**
