@@ -9,54 +9,39 @@ use Cake\TestSuite\IntegrationTestCase;
  */
 class RoutesControllerTest extends IntegrationTestCase
 {
+    /**
+     * Total sidebar actions
+     */
+    const TOTAL_ACTIONS = 2;
 
     /**
-     * Test index method
-     *
-     * @return void
+     * {@inheritDoc}
      */
-    public function testIndex()
+    public function setUp()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        parent::setUp();
+
+        $this->configRequest([
+            'headers' => [
+                'Accept' => 'application/json'
+            ]
+        ]);
     }
 
     /**
-     * Test view method
+     * Test getSidebar method
      *
      * @return void
      */
-    public function testView()
+    public function testGetSidebar()
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+        $this->get('/api/routes/get-sidebar');
 
-    /**
-     * Test add method
-     *
-     * @return void
-     */
-    public function testAdd()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+        $response = $this->_getBodyAsString();
+        $responseArray = json_decode($response, true);
 
-    /**
-     * Test edit method
-     *
-     * @return void
-     */
-    public function testEdit()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test delete method
-     *
-     * @return void
-     */
-    public function testDelete()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->assertResponseOk();
+        $this->assertEquals(self::TOTAL_ACTIONS, count($responseArray));
+        $this->assertJson('[{"title":"Dashboard","routeName":"dashboard"},{"title":"Posts","routeName":"posts"}]');
     }
 }
