@@ -18,8 +18,7 @@ php:
 
 env:
   matrix:
-    - DB=mysql
-    - DATABASE_URL='mysql://root@127.0.0.1/test_cakevue_spa?init[]=SET sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"'
+    - DB=mysql DATABASE_URL='mysql://root@127.0.0.1/test_cakevue_spa?init[]=SET sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"'
 
 services:
   - mysql
