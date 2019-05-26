@@ -28,14 +28,8 @@ class RoutesController extends AppController
                 'title' => 'Posts',
                 'routeName' => 'posts',
             ],
-            // [
-            //     'title' => 'Users',
-            //     'routeName' => 'users',
-            // ],
         ];
 
-        return $this->getResponse()
-            ->withType('application/json')
-            ->withStringBody(json_encode($sidebar));
+        return $this->setJsonResponse($sidebar);
     }
 }
