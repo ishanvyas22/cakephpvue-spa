@@ -18,7 +18,7 @@ php:
 
 env:
   matrix:
-    - DB=mysql db_dsn='mysql://root@127.0.0.1/test_cakevue_spa?init[]=SET sql_mode = ""'
+    - DB=mysql DATABASE_URL='mysql://root:@127.0.0.1/test_cakevue_spa?init[]=SET sql_mode = ""'
 
 services:
   - mysql
@@ -40,7 +40,7 @@ matrix:
       env: CODECOVERAGE=1 DEFAULT=0
 
 before_script:
-  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE test_cakevue_spa;'; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE IF NOT EXISTS test_cakevue_spa;'; fi
   - if [[ $PHPCS = 1 ]]; then composer require cakephp/cakephp-codesniffer:^3.0; fi
   - if [[ $DEFAULT = 1 ]]; then composer install --no-interaction; fi
   - if [[ $DEFAULT = 1 ]]; then composer test-setup; fi
