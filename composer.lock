@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d258855852c88a29523285241130a71a",
+    "content-hash": "8e6c3485875cabe57f24d5d9260947cc",
     "packages": [
         {
             "name": "aura/intl",
@@ -291,6 +291,39 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2019-07-25T15:43:38+00:00"
+        },
+        {
+            "name": "ishanvyas22/asset-mix",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ishanvyas22/asset-mix.git",
+                "reference": "c78455005c6a3d8dd5a2e150ce6d4ee0250143c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ishanvyas22/asset-mix/zipball/c78455005c6a3d8dd5a2e150ce6d4ee0250143c0",
+                "reference": "c78455005c6a3d8dd5a2e150ce6d4ee0250143c0",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^3.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.14|^6.0"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Mix\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Asset Mix plugin for CakePHP",
+            "time": "2019-10-15T09:39:51+00:00"
         },
         {
             "name": "josegonzalez/dotenv",
