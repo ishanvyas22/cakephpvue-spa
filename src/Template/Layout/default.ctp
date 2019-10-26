@@ -28,15 +28,10 @@ $cakeDescription = 'CakeVue Application';
 
         <app></app>
 
-        <?php
-        // echo $this->fetch('content');
-        ?>
-
         <footer></footer>
     </span>
 </body>
 
-<!-- <script type="text/javascript" src="/js/dist/app.js"></script> -->
 <?= $this->Mix->script('app') ?>
 
 </html>
