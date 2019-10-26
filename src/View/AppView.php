@@ -36,5 +36,6 @@ class AppView extends View
      */
     public function initialize()
     {
+        $this->loadHelper('Mix.Mix');
     }
 }
