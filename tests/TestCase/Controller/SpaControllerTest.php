@@ -11,15 +11,6 @@ class SpaControllerTest extends IntegrationTestCase
 {
 
     /**
-     * Fixtures
-     *
-     * @var array
-     */
-    public $fixtures = [
-        'app.spa'
-    ];
-
-    /**
      * Test index method
      *
      * @return void

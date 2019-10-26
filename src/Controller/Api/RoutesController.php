@@ -2,6 +2,7 @@
 namespace App\Controller\Api;
 
 use App\Controller\AppController;
+use App\Controller\Traits\ResponseTrait;
 
 /**
  * Routes Controller
@@ -11,6 +12,7 @@ use App\Controller\AppController;
  */
 class RoutesController extends AppController
 {
+    use ResponseTrait;
 
     /**
      * Get sidebar array
@@ -28,14 +30,8 @@ class RoutesController extends AppController
                 'title' => 'Posts',
                 'routeName' => 'posts',
             ],
-            // [
-            //     'title' => 'Users',
-            //     'routeName' => 'users',
-            // ],
         ];
 
-        return $this->getResponse()
-            ->withType('application/json')
-            ->withStringBody(json_encode($sidebar));
+        return $this->setJsonResponse($sidebar);
     }
 }

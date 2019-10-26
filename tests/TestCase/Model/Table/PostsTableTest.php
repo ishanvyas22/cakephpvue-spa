@@ -14,7 +14,7 @@ class PostsTableTest extends TestCase
     /**
      * Test subject
      *
-     * @var \App\Model\Table\PostsTable
+     * @var \App\Model\Table\PostsTable|\Cake\ORM\Table
      */
     public $Posts;
 
