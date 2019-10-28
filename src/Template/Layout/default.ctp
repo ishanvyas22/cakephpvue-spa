@@ -12,11 +12,7 @@ $cakeDescription = 'CakeVue Application';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?php
-    echo $this->Html->css('base.css');
-    echo $this->Html->css('foundation-icons/foundation-icons.css');
-    echo $this->Html->css('style.css');
-    ?>
+    <?= $this->Mix->css('main') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
