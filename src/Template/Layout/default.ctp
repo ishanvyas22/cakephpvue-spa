@@ -12,11 +12,7 @@ $cakeDescription = 'CakeVue Application';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?php
-    echo $this->Html->css('base.css');
-    echo $this->Html->css('foundation-icons/foundation-icons.css');
-    echo $this->Html->css('style.css');
-    ?>
+    <?= $this->Mix->css('main') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -28,15 +24,10 @@ $cakeDescription = 'CakeVue Application';
 
         <app></app>
 
-        <?php
-        // echo $this->fetch('content');
-        ?>
-
-        <footer>
-        </footer>
+        <footer></footer>
     </span>
 </body>
 
-<script type="text/javascript" src="/js/dist/app.js"></script>
+<?= $this->Mix->script('app') ?>
 
 </html>

@@ -29,20 +29,21 @@ require __DIR__ . '/paths.php';
  */
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
-use Cake\Cache\Cache;
-use Cake\Console\ConsoleErrorHandler;
+use Cake\Log\Log;
 use Cake\Core\App;
-use Cake\Core\Configure;
-use Cake\Core\Configure\Engine\PhpConfig;
+use Cake\Cache\Cache;
 use Cake\Core\Plugin;
+use Cake\Mailer\Email;
 use Cake\Database\Type;
-use Cake\Datasource\ConnectionManager;
+use Cake\Core\Configure;
+use Cake\Utility\Security;
+use Cake\Utility\Inflector;
 use Cake\Error\ErrorHandler;
 use Cake\Http\ServerRequest;
-use Cake\Log\Log;
-use Cake\Mailer\Email;
-use Cake\Utility\Inflector;
-use Cake\Utility\Security;
+use Cake\Mailer\TransportFactory;
+use Cake\Console\ConsoleErrorHandler;
+use Cake\Datasource\ConnectionManager;
+use Cake\Core\Configure\Engine\PhpConfig;
 
 /**
  * Uncomment block of code below if you want to use `.env` file during development.
@@ -145,7 +146,7 @@ if (!Configure::read('App.fullBaseUrl')) {
 
 Cache::setConfig(Configure::consume('Cache'));
 ConnectionManager::setConfig(Configure::consume('Datasources'));
-Email::setConfigTransport(Configure::consume('EmailTransport'));
+TransportFactory::setConfig(Configure::consume('EmailTransport'));
 Email::setConfig(Configure::consume('Email'));
 Log::setConfig(Configure::consume('Log'));
 Security::setSalt(Configure::consume('Security.salt'));
