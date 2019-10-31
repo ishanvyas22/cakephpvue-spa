@@ -35,7 +35,7 @@ class Application extends BaseApplication
      */
     public function bootstrap()
     {
-        $this->addPlugin('Mix', ['bootstrap' => true]);
+        $this->addPlugin('AssetMix');
 
         // Call parent to load bootstrap from files.
         parent::bootstrap();

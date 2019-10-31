@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40441074aacfc3367e1a69a72c8106c1",
+    "content-hash": "c10fc9d5e8f0e96400763a2cc69eded6",
     "packages": [
         {
             "name": "aura/intl",
@@ -294,16 +294,16 @@
         },
         {
             "name": "ishanvyas22/asset-mix",
-            "version": "0.1.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ishanvyas22/asset-mix.git",
-                "reference": "c78455005c6a3d8dd5a2e150ce6d4ee0250143c0"
+                "reference": "2baa9fb63ee8e9be3a945e6595bf852a8183fad2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ishanvyas22/asset-mix/zipball/c78455005c6a3d8dd5a2e150ce6d4ee0250143c0",
-                "reference": "c78455005c6a3d8dd5a2e150ce6d4ee0250143c0",
+                "url": "https://api.github.com/repos/ishanvyas22/asset-mix/zipball/2baa9fb63ee8e9be3a945e6595bf852a8183fad2",
+                "reference": "2baa9fb63ee8e9be3a945e6595bf852a8183fad2",
                 "shasum": ""
             },
             "require": {
@@ -315,15 +315,18 @@
             "type": "cakephp-plugin",
             "autoload": {
                 "psr-4": {
-                    "Mix\\": "src/"
-                }
+                    "AssetMix\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Asset Mix plugin for CakePHP",
-            "time": "2019-10-15T09:39:51+00:00"
+            "time": "2019-10-31T10:48:29+00:00"
         },
         {
             "name": "josegonzalez/dotenv",

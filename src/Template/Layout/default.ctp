@@ -12,7 +12,9 @@ $cakeDescription = 'CakeVue Application';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Mix->css('main') ?>
+    <?= $this->AssetMix->css('main') ?>
+
+    <?= $this->AssetMix->script('app') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -27,7 +29,5 @@ $cakeDescription = 'CakeVue Application';
         <footer></footer>
     </span>
 </body>
-
-<?= $this->Mix->script('app') ?>
 
 </html>
