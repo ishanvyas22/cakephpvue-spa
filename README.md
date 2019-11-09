@@ -1,6 +1,9 @@
 # A Basic CakePHP + VueJS Single Page Application
-[![Build Status](https://travis-ci.com/ishanvyas22/cakephpvue-spa.svg?branch=develop)](https://travis-ci.com/ishanvyas22/cakephpvue-spa)
+
+[![Latest Stable Version](https://poser.pugx.org/ishanvyas22/cakephpvue-spa/v/stable)](https://packagist.org/packages/ishanvyas22/cakephpvue-spa)
+[![Total Downloads](https://poser.pugx.org/ishanvyas22/cakephpvue-spa/downloads)](https://packagist.org/packages/ishanvyas22/cakephpvue-spa)
 [![License](https://poser.pugx.org/ishanvyas22/cakephpvue-spa/license)](https://packagist.org/packages/ishanvyas22/cakephpvue-spa)
+[![Build Status](https://travis-ci.com/ishanvyas22/cakephpvue-spa.svg?branch=develop)](https://travis-ci.com/ishanvyas22/cakephpvue-spa)
 
 A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton to quickly get started with cakephp and vuejs.
 
@@ -31,7 +34,7 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
     ```bash
     npm install
     ```
-2. Run below command (Uses awesome tool [Laravel mix](https://laravel-mix.com) by [Jeffrey Way](https://github.com/JeffreyWay))
+2. Run below command (Uses awesome [Asset Mix](https://github.com/ishanvyas22/asset-mix) plugin for asset compilation)
     - **To watch every changes in your vue file**
         ```bash
         npm run watch

@@ -2,13 +2,10 @@ language: php
 
 dist: trusty
 
-sudo: false
-
 branches:
   only:
     - master
     - develop
-    - releases/1.0.3
 
 php:
   - 5.6
@@ -23,13 +20,10 @@ env:
 services:
   - mysql
 
-addons:
-  apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
-      - mysql-client
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
 
 matrix:
   fast_finish: true
@@ -50,14 +44,12 @@ matrix:
     - php: 7.2
       env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_URL='mysql://root:root@127.0.0.1/cakevue_spa?init[]=SET sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"' DATABASE_TEST_URL='mysql://root:root@127.0.0.1/test_cakevue_spa?init[]=SET sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"'
 
-before_install:
-  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -u root -proot
-  - sudo service mysql restart
-
 before_script:
-  - if [ $DB = 'mysql' ]; then mysql -u root -proot -e 'CREATE DATABASE cakevue_spa;'; fi
-  - if [ $DB = 'mysql' ]; then mysql -u root -proot -e 'CREATE DATABASE test_cakevue_spa;'; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE cakevue_spa;'; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE test_cakevue_spa;'; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e "CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'ishan';"; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON cakevue_spa.* TO 'ishan'@'localhost';"; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"; fi
   - if [[ $PHPCS = 1 ]]; then composer require cakephp/cakephp-codesniffer:^3.0; fi
   - if [[ $DEFAULT = 1 ]]; then composer install --no-interaction; fi
   - if [[ $DEFAULT = 1 ]]; then composer test-setup; fi
