@@ -8,7 +8,7 @@ branches:
   only:
     - master
     - develop
-    - releases/1.0.3
+    - releases/1.1.1
 
 php:
   - 5.6
@@ -26,6 +26,7 @@ services:
 addons:
   apt:
     sources:
+      - mysql-5.5-trusty
       - mysql-5.7-trusty
     packages:
       - mysql-server
