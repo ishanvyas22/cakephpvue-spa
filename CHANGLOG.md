@@ -1,6 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.1...master)
+## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.2...master)
+
+## [1.1.2](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.1...1.1.2)
 
 ### Added
 - Adds CHANGLOG.md file ([#15](https://github.com/ishanvyas22/cakephpvue-spa/pull/15))
