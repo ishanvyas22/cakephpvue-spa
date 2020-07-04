@@ -2,6 +2,19 @@
 
 ## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.1...master)
 
+### Changed
+- Bump `acorn` from 6.3.0 to 6.4.1 ([#13](https://github.com/ishanvyas22/cakephpvue-spa/pull/13))
+- Bump `websocket-extensions` from 0.1.3 to 0.1.4 ([#14](https://github.com/ishanvyas22/cakephpvue-spa/pull/14))
+- Add `ext-json` dependency in composer.json file ([eeae332](https://github.com/ishanvyas22/cakephpvue-spa/commit/eeae3323aec028d3d9fbe37b5a25df9270e68ac4))
+- Update cakephp codesniffer package ([0438dc0](https://github.com/ishanvyas22/cakephpvue-spa/commit/0438dc0f6f7ebbadfef6e1467411d023ac58d7dd))
+
+### Fixed
+- Warning: The lock file is not up to date with the latest changes in composer.json. ([5cca1be](https://github.com/ishanvyas22/cakephpvue-spa/commit/5cca1be214881e93100a83d2a21b8fbdf542ccf4))
+- Phpstan errors ([12f29d5](https://github.com/ishanvyas22/cakephpvue-spa/commit/12f29d5cd5e5bf14cd55002f1e08c3746c5c611c))
+
+### Removed
+- Remove cs check from webroot directory ([99b3c7a](https://github.com/ishanvyas22/cakephpvue-spa/commit/99b3c7aef032bb47de61cd5f669edbd53a250807))
+
 ## [1.1.1 (2019-11-09)](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.0...1.1.1)
 
 ### Added
