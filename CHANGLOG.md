@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.1...master)
 
+### Added
+- Adds CHANGLOG.md file ([#15](https://github.com/ishanvyas22/cakephpvue-spa/pull/15))
+
 ### Changed
 - Bump `acorn` from 6.3.0 to 6.4.1 ([#13](https://github.com/ishanvyas22/cakephpvue-spa/pull/13))
 - Bump `websocket-extensions` from 0.1.3 to 0.1.4 ([#14](https://github.com/ishanvyas22/cakephpvue-spa/pull/14))
