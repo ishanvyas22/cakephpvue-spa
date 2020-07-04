@@ -7,6 +7,7 @@
         "php": ">=5.6",
         "ext-json": "*",
         "cakephp/cakephp": "3.8.*",
+        "cakephp/cakephp-codesniffer": "^3.0",
         "cakephp/migrations": "^2.0.0",
         "cakephp/plugin-installer": "^1.0",
         "ishanvyas22/asset-mix": "^0.3.0",
@@ -15,7 +16,6 @@
     },
     "require-dev": {
         "cakephp/bake": "^1.1",
-        "cakephp/cakephp-codesniffer": "^3.0",
         "cakephp/debug_kit": "^3.15.0",
         "psy/psysh": "@stable"
     },
@@ -40,8 +40,8 @@
             "@cs-check",
             "@phpstan"
         ],
-        "cs-check": "phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
-        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
+        "cs-check": "phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
         "test-setup": "cp composer.json composer.backup && composer require --dev phpunit/phpunit:\"^5.7.14|^6.0\" && mv composer.backup composer.json",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --coverage-clover=clover.xml",
