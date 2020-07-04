@@ -2,7 +2,9 @@
     <nav class="large-3 medium-4 columns" id="actions-sidebar">
         <ul class="side-nav">
             <li class="heading">Actions</li>
-            <li v-for="action in actions"><router-link :to="{ name: action.routeName }">{{ action.title }}</router-link></li>
+            <li v-for="action in actions">
+                <router-link :to="{ name: action.routeName }">{{ action.title }}</router-link>
+            </li>
         </ul>
     </nav>
 </template>
