@@ -78,7 +78,7 @@ class PostsController extends AppController
     public function view($id = null)
     {
         $post = $this->Posts->get($id, [
-            'contain' => []
+            'contain' => [],
         ]);
 
         return $this->setJsonResponse(['post' => $post]);
@@ -95,7 +95,7 @@ class PostsController extends AppController
         if (! $this->request->is('post')) {
             return $this->setJsonResponse([
                 'error' => true,
-                'message' => 'Invalid request!'
+                'message' => 'Invalid request!',
             ]);
         }
 
@@ -107,7 +107,7 @@ class PostsController extends AppController
                     'data' => $result,
                     'success' => true,
                     'url' => '/posts',
-                    'message' => __('The post has been saved.')
+                    'message' => __('The post has been saved.'),
                 ],
                 201
             );
@@ -116,7 +116,7 @@ class PostsController extends AppController
         return $this->setJsonResponse(
             [
                 'errors' => $post->getValidationErrors(),
-                'message' => __('The post could not be saved. Please, try again.')
+                'message' => __('The post could not be saved. Please, try again.'),
             ],
             422
         );
@@ -132,7 +132,7 @@ class PostsController extends AppController
     public function edit($id = null)
     {
         $post = $this->Posts->get($id, [
-            'contain' => []
+            'contain' => [],
         ]);
 
         return $this->setJsonResponse(
@@ -154,7 +154,7 @@ class PostsController extends AppController
         if (! $this->request->is(['patch', 'post', 'put'])) {
             return $this->setJsonResponse([
                 'error' => true,
-                'message' => 'Invalid request!'
+                'message' => 'Invalid request!',
             ]);
         }
 
@@ -164,7 +164,7 @@ class PostsController extends AppController
             return $this->setJsonResponse(
                 [
                     'errors' => $result['errors'],
-                    'message' => __('The post could not be saved. Please, try again.')
+                    'message' => __('The post could not be saved. Please, try again.'),
                 ],
                 422
             );
@@ -175,7 +175,7 @@ class PostsController extends AppController
                 'data' => $result,
                 'success' => true,
                 'url' => '/posts',
-                'message' => __('The post has been updated.')
+                'message' => __('The post has been updated.'),
             ]
         );
     }
@@ -192,7 +192,7 @@ class PostsController extends AppController
         if (! $this->request->is(['post', 'delete'])) {
             return $this->setJsonResponse([
                 'error' => true,
-                'message' => 'Invalid request!'
+                'message' => 'Invalid request!',
             ]);
         }
 
@@ -209,7 +209,7 @@ class PostsController extends AppController
         return $this->setJsonResponse([
             'message' => __('The post has been deleted.'),
             'success' => true,
-            'url' => '/posts'
+            'url' => '/posts',
         ]);
     }
 }

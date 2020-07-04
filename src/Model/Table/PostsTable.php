@@ -81,7 +81,7 @@ class PostsTable extends Table
     {
         try {
             $post = $this->get($id, [
-                'contain' => []
+                'contain' => [],
             ]);
 
             $post = $this->patchEntity($post, $data);

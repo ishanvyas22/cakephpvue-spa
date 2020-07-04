@@ -24,7 +24,7 @@ class PostsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.posts'
+        'app.posts',
     ];
 
     /**

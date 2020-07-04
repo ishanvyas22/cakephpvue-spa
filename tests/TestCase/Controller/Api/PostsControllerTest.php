@@ -16,7 +16,7 @@ class PostsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.posts'
+        'app.posts',
     ];
 
     /**
@@ -28,8 +28,8 @@ class PostsControllerTest extends IntegrationTestCase
 
         $this->configRequest([
             'headers' => [
-                'Accept' => 'application/json'
-            ]
+                'Accept' => 'application/json',
+            ],
         ]);
     }
 

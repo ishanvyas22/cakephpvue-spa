@@ -23,8 +23,8 @@ class RoutesControllerTest extends IntegrationTestCase
 
         $this->configRequest([
             'headers' => [
-                'Accept' => 'application/json'
-            ]
+                'Accept' => 'application/json',
+            ],
         ]);
     }
 

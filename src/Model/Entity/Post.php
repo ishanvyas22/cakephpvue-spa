@@ -28,6 +28,6 @@ class Post extends Entity
         'title' => true,
         'description' => true,
         'created' => true,
-        'modified' => true
+        'modified' => true,
     ];
 }
