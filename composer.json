@@ -10,7 +10,7 @@
         "cakephp/cakephp-codesniffer": "^3.0",
         "cakephp/migrations": "^2.0.0",
         "cakephp/plugin-installer": "^1.0",
-        "ishanvyas22/asset-mix": "^0.3.0",
+        "ishanvyas22/asset-mix": "^0.4.0",
         "josegonzalez/dotenv": "3.*",
         "mobiledetect/mobiledetectlib": "2.*"
     },

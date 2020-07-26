@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9855da17aab6390b8cdf0bc0e43c0188",
+    "content-hash": "d2330aa4504808205806a5d3def32f64",
     "packages": [
         {
             "name": "aura/intl",
@@ -339,22 +339,24 @@
         },
         {
             "name": "ishanvyas22/asset-mix",
-            "version": "0.3.1",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ishanvyas22/asset-mix.git",
-                "reference": "e39705b3af04a7cca8c1b882318431f3f335f92a"
+                "reference": "558f45b784d81401facb37c779b0477eabfe8342"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ishanvyas22/asset-mix/zipball/e39705b3af04a7cca8c1b882318431f3f335f92a",
-                "reference": "e39705b3af04a7cca8c1b882318431f3f335f92a",
+                "url": "https://api.github.com/repos/ishanvyas22/asset-mix/zipball/558f45b784d81401facb37c779b0477eabfe8342",
+                "reference": "558f45b784d81401facb37c779b0477eabfe8342",
                 "shasum": ""
             },
             "require": {
                 "cakephp/cakephp": ">=3.5.0 <4.0.0"
             },
             "require-dev": {
+                "cakephp/cakephp-codesniffer": "^3.0",
+                "phpstan/phpstan": "^0.12.32",
                 "phpunit/phpunit": "^5.7.14|^6.0"
             },
             "type": "cakephp-plugin",
@@ -389,7 +391,7 @@
                 "minifier",
                 "sass"
             ],
-            "time": "2019-11-01T10:22:09+00:00"
+            "time": "2020-07-26T11:52:23+00:00"
         },
         {
             "name": "josegonzalez/dotenv",
