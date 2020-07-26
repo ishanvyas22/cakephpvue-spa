@@ -2,7 +2,7 @@
 
 ## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.3...cake3)
 
-## [1.1.3](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.2...1.1.3)
+## [1.1.4](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.2...1.1.4)
 
 ### Added
 - Added `cake3` branch in `.travis.yml` file ([5458058](https://github.com/ishanvyas22/cakephpvue-spa/commit/54580589486b54b10e5cd6d66a857da16f26099e))
@@ -11,6 +11,9 @@
 - Bump lodash from 4.17.15 to 4.17.19 ([09134d3](https://github.com/ishanvyas22/cakephpvue-spa/commit/09134d321f96754a564d8390ae6967fdcb9f547e))
 - Update npm dependencies ([05d75be](https://github.com/ishanvyas22/cakephpvue-spa/commit/05d75be7b17fa69566a0c048b27919c4b70f0ebe))
 - Update asset-mix from 0.3.1 to 0.4.3 ([906ee71](https://github.com/ishanvyas22/cakephpvue-spa/commit/906ee718ae00e1f0268cac32e7b7d1d012523223))
+
+### Removed
+- Removed `develop` branch from travis check ([5458058](https://github.com/ishanvyas22/cakephpvue-spa/commit/54580589486b54b10e5cd6d66a857da16f26099e))
 
 ## [1.1.2](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.1...1.1.2)
 
