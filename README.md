@@ -52,6 +52,9 @@ A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerp
 - This is project is under development currently so you might not want to use this app in production directly.
 - This is just a skeleton/example how you can implement the Vue.js with CakePHP.
 
+## Changelog
+Please see [CHANGELOG](CHANGELOG.md) for more information about recent changes.
+
 ## Issues
 Feel free to submit issues and enhancement requests.
 
