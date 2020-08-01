@@ -2,6 +2,10 @@
 
 ## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.2...master)
 
+### Changed
+- Bump lodash from 4.17.15 to 4.17.19 ([#16](https://github.com/ishanvyas22/cakephpvue-spa/pull/16))
+- Bump elliptic from 6.5.1 to 6.5.3 ([#17](https://github.com/ishanvyas22/cakephpvue-spa/pull/17))
+
 ## [1.1.2](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.1...1.1.2)
 
 ### Added
