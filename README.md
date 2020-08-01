@@ -52,11 +52,19 @@ A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerp
 - This is project is under development currently so you might not want to use this app in production directly.
 - This is just a skeleton/example how you can implement the Vue.js with CakePHP.
 
+## ❤️  Support The Development
+**Do you like this project? Support it by donating:**
+<a href="https://www.buymeacoffee.com/ishanvyas" target="_blank">
+    <img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" >
+</a>
+<a href="https://www.patreon.com/ishanvyas">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
+or
+- Paypal: https://paypal.me/IshanVyas?locale.x=en_GB
+
 ## Changelog
 Please see [CHANGELOG](CHANGELOG.md) for more information about recent changes.
-
-## Issues
-Feel free to submit issues and enhancement requests.
 
 ## Contribution
 I love to welcome your contributions if you know CakePHP / Vue.js.
