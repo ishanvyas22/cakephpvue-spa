@@ -57,3 +57,6 @@ Feel free to submit issues and enhancement requests.
 
 ## Contribution
 I love to welcome your contributions if you know CakePHP / Vue.js.
+
+## License
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
