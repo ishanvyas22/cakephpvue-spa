@@ -1,6 +1,6 @@
 {
     "name": "ishanvyas22/cakephpvue-spa",
-    "description": "A CakePHP + VueJS single page application skeleton",
+    "description": "A CakePHP + VueJS single page application skeleton/boilerplate",
     "type": "project",
     "license": "MIT",
     "require": {
