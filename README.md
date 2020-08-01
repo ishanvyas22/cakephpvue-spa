@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/ishanvyas22/cakephpvue-spa/license)](https://packagist.org/packages/ishanvyas22/cakephpvue-spa)
 [![Build Status](https://travis-ci.com/ishanvyas22/cakephpvue-spa.svg?branch=develop)](https://travis-ci.com/ishanvyas22/cakephpvue-spa)
 
-A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton to quickly get started with cakephp and vuejs.
+A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerplate to quickly get started with CakePHP and Vue.js.
 
 ## Installation
 1. Get project into your system
@@ -50,7 +50,7 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
 
 ## Notes
 - This is project is under development currently so you might not want to use this app in production directly.
-- This is just a skeleton/example how you can implement the VueJS with CakePHP.
+- This is just a skeleton/example how you can implement the Vue.js with CakePHP.
 
 ## TODO
 - To add TODO section in README :)
@@ -59,4 +59,4 @@ A basic CakePHP(3.\*) + VueJS single page application. Provides basic skeleton t
 Feel free to submit issues and enhancement requests.
 
 ## Contribution
-I love to welcome your contributions if you know VueJS / CakePHP.
+I love to welcome your contributions if you know CakePHP / Vue.js.
