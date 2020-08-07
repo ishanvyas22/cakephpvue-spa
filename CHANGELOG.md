@@ -4,3 +4,6 @@
 
 ### Added
 - Upgrade application to CakePHP 4.x
+
+### Fixed
+- Rename `CHANGLOG.md` to `CHANGELOG.md`
