@@ -1,6 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.3...cake3)
+## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.5...cake3)
+
+## [1.1.5 (2020-08-08)](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.4...1.1.5)
 
 ### Added
 - Added Support The Development, Changelog, and License section in README.md ([eba4660](https://github.com/ishanvyas22/cakephpvue-spa/commit/eba466039324d7ddd46f153142d565efc8735e1e))
