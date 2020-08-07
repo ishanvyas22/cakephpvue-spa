@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.3...cake3)
 
+### Added
+- Added Support The Development, Changelog, and License section in README.md
+
+### Changed
+- Bump asset-mix from 0.4.3 to 0.5.1 ([cfa6a94](https://github.com/ishanvyas22/cakephpvue-spa/commit/cfa6a94bb60bb9a246555fd9f70c793646d92322))
+
 ## [1.1.4](https://github.com/ishanvyas22/cakephpvue-spa/compare/1.1.2...1.1.4)
 
 ### Added
