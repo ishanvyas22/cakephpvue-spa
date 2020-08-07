@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2330aa4504808205806a5d3def32f64",
+    "content-hash": "77e3627a69e110aa20dbf427eaa13a0c",
     "packages": [
         {
             "name": "aura/intl",
@@ -339,16 +339,16 @@
         },
         {
             "name": "ishanvyas22/asset-mix",
-            "version": "0.4.3",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ishanvyas22/asset-mix.git",
-                "reference": "558f45b784d81401facb37c779b0477eabfe8342"
+                "reference": "d7cf3b3b4ccb5215f8a7f1902de70a00011d6eb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ishanvyas22/asset-mix/zipball/558f45b784d81401facb37c779b0477eabfe8342",
-                "reference": "558f45b784d81401facb37c779b0477eabfe8342",
+                "url": "https://api.github.com/repos/ishanvyas22/asset-mix/zipball/d7cf3b3b4ccb5215f8a7f1902de70a00011d6eb5",
+                "reference": "d7cf3b3b4ccb5215f8a7f1902de70a00011d6eb5",
                 "shasum": ""
             },
             "require": {
@@ -391,7 +391,7 @@
                 "minifier",
                 "sass"
             ],
-            "time": "2020-07-26T11:52:23+00:00"
+            "time": "2020-08-07T18:42:43+00:00"
         },
         {
             "name": "josegonzalez/dotenv",
