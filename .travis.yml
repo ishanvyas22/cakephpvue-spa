@@ -40,8 +40,8 @@ matrix:
 # before_install:
 #     - phpenv config-rm xdebug.ini
 
-# before_script:
-#     - if [[ $DB == 'mysql' ]]; then mysql -e 'CREATE DATABASE test_cakevue_spa;'; fi
+before_script:
+    - mysql -e 'CREATE DATABASE test_cakevue_spa;'
 
 install:
     - composer install --no-interaction
