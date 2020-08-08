@@ -14,7 +14,7 @@ services:
 
 env:
     matrix:
-        - DB=mysql DATABASE_TEST_URL='mysql://root@127.0.0.1/test_cakevue_spa'
+        - DB=mysql DATABASE_TEST_URL='mysql://ishan:ishan@127.0.0.1/test_cakevue_spa'
     global:
         - DEFAULT=1
 
@@ -41,7 +41,7 @@ matrix:
 #     - phpenv config-rm xdebug.ini
 
 before_script:
-    - mysql -e 'CREATE DATABASE test_cakevue_spa;'
+    - mysql -u root -e "CREATE DATABASE test_cakevue_spa; CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'ishan'; GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"
 
 install:
     - composer install --no-interaction
