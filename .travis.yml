@@ -34,10 +34,8 @@ matrix:
   include:
     - php: 7.2
       env: PHPCS=1 DEFAULT=0
-
     - php: 7.2
       env: PHPSTAN=1 DEFAULT=0
-
     - php: 7.2
       env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_TEST_URL='mysql://root:root@127.0.0.1/test_cakevue_spa'
 
@@ -45,21 +43,13 @@ before_install:
   - phpenv config-rm xdebug.ini
 
 install:
-  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE cakevue_spa;'; fi
-  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE test_cakevue_spa;'; fi
-  - if [ $DB = 'mysql' ]; then mysql -u root -e "CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'ishan';"; fi
-  - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON cakevue_spa.* TO 'ishan'@'localhost';"; fi
-  - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"; fi
-
+  - mysql -u root -e "CREATE DATABASE test_cakevue_spa; CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'vyas'; GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"
   - composer install --no-interaction
 
 script:
   - if [[ $DEFAULT = 1 ]]; then composer test; fi
-
   - if [[ $PHPCS = 1 ]]; then composer cs-check; fi
-
   - if [[ $PHPSTAN = 1 ]]; then composer analyse; fi
-
   - if [[ $CODECOVERAGE == 1 ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=clover.xml; fi
 
 after_success:
