@@ -29,8 +29,8 @@ matrix:
         - php: 7.2
             env: CODECOVERAGE=1 DEFAULT=0
 
-before_script:
-    - mysql -u root -e "CREATE DATABASE test_cakevue_spa; CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'vyas'; GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"
+# before_script:
+#     - mysql -u root -e "CREATE DATABASE test_cakevue_spa; CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'vyas'; GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"
 
 install:
     - composer install --no-interaction
