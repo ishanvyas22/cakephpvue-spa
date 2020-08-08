@@ -1,7 +1,8 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Test\TestCase\Controller\Api;
 
-use App\Controller\Api\PostsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
@@ -9,7 +10,6 @@ use Cake\TestSuite\IntegrationTestCase;
  */
 class PostsControllerTest extends IntegrationTestCase
 {
-
     /**
      * Fixtures
      *
@@ -20,7 +20,7 @@ class PostsControllerTest extends IntegrationTestCase
     ];
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public function setUp(): void
     {

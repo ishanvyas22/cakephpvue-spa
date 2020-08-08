@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Controller\Api;
 
@@ -9,7 +10,6 @@ use App\Controller\Traits\ResponseTrait;
  * Posts Controller
  *
  * @property \App\Model\Table\PostsTable $Posts
- *
  * @method \App\Model\Entity\Post[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class PostsController extends AppController
