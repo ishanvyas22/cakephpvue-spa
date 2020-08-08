@@ -88,7 +88,7 @@ class PostsController extends AppController
      * Save request data into database,
      * Returns validation error(s) if unable to save.
      *
-     * @return string
+     * @return \Cake\Http\Response
      */
     public function save()
     {
@@ -127,7 +127,7 @@ class PostsController extends AppController
      * Edit method
      *
      * @param string|null $id Post id.
-     * @return string Returns posts data.
+     * @return \Cake\Http\Response Returns posts data.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
@@ -148,7 +148,7 @@ class PostsController extends AppController
      * Update existing data for given id.
      *
      * @param int $id Post id.
-     * @return string Returns success/error data depend on post data
+     * @return \Cake\Http\Response Returns success/error data depend on post data
      */
     public function update($id)
     {

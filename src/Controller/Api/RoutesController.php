@@ -18,7 +18,7 @@ class RoutesController extends AppController
     /**
      * Get sidebar array
      *
-     * @return string
+     * @return \Cake\Http\Response
      */
     public function getSidebar()
     {
