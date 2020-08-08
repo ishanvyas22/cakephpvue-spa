@@ -1,9 +1,9 @@
 # A Basic CakePHP + VueJS Single Page Application
 
+[![Build Status](https://travis-ci.com/ishanvyas22/cakephpvue-spa.svg?branch=develop)](https://travis-ci.com/ishanvyas22/cakephpvue-spa)
 [![Latest Stable Version](https://poser.pugx.org/ishanvyas22/cakephpvue-spa/v/stable)](https://packagist.org/packages/ishanvyas22/cakephpvue-spa)
 [![Total Downloads](https://poser.pugx.org/ishanvyas22/cakephpvue-spa/downloads)](https://packagist.org/packages/ishanvyas22/cakephpvue-spa)
 [![License](https://poser.pugx.org/ishanvyas22/cakephpvue-spa/license)](https://packagist.org/packages/ishanvyas22/cakephpvue-spa)
-[![Build Status](https://travis-ci.com/ishanvyas22/cakephpvue-spa.svg?branch=develop)](https://travis-ci.com/ishanvyas22/cakephpvue-spa)
 
 A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerplate to quickly get started with CakePHP and Vue.js.
 
