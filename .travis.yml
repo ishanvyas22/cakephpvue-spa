@@ -1,55 +1,69 @@
 language: php
 
 branches:
-    only:
-        - master
-        - upgrade-app-to-cake4
+  only:
+    - master
+    - upgrade-app-to-cake4
 
 php:
-    - 7.2
-    - 7.3
-    - 7.4
-
-services:
-    - mysql
+  - 7.2
+  - 7.3
+  - 7.4
 
 env:
-    matrix:
-        - DB=mysql DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
+  matrix:
+    - DB=mysql DATABASE_TEST_URL='mysql://root:root@127.0.0.1/test_cakevue_spa'
+
+services:
+  - mysql
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
 
 matrix:
-    fast_finish: true
+  fast_finish: true
 
-    global:
-        - DEFAULT=1
-        - PHPCS=0
-        - PHPSTAN=0
-        - CODECOVERAGE=0
+  global:
+    - DEFAULT=1
+    - PHPCS=0
+    - PHPSTAN=0
+    - CODECOVERAGE=0
 
-    include:
-        - php: 7.2
-            env: PHPCS=1 DEFAULT=0
+  include:
+    - php: 7.2
+      env: PHPCS=1 DEFAULT=0
 
-        - php: 7.2
-            env: PHPSTAN=1 DEFAULT=0
+    - php: 7.2
+      env: PHPSTAN=1 DEFAULT=0
 
-        - php: 7.2
-            env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
+    - php: 7.2
+      env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_TEST_URL='mysql://root:root@127.0.0.1/test_cakevue_spa'
 
-before_script:
-    - mysql -u root -e "CREATE DATABASE test_cakevue_spa; CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'vyas'; GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"
+before_install:
+  - phpenv config-rm xdebug.ini
 
 install:
-    - composer install --no-interaction
+  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE cakevue_spa;'; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE test_cakevue_spa;'; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e "CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'ishan';"; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON cakevue_spa.* TO 'ishan'@'localhost';"; fi
+  - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"; fi
+
+  - composer install --no-interaction
 
 script:
-    - if [[ $DEFAULT = 1 ]]; then composer test; fi
-    - if [[ $PHPCS = 1 ]]; then composer cs-check; fi
-    - if [[ $PHPSTAN = 1 ]]; then composer analyse; fi
-    - if [[ $CODECOVERAGE == 1 ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=clover.xml; fi
+  - if [[ $DEFAULT = 1 ]]; then composer test; fi
+
+  - if [[ $PHPCS = 1 ]]; then composer cs-check; fi
+
+  - if [[ $PHPSTAN = 1 ]]; then composer analyse; fi
+
+  - if [[ $CODECOVERAGE == 1 ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=clover.xml; fi
 
 after_success:
-    - if [[ $CODECOVERAGE == 1 ]]; then bash <(curl -s https://codecov.io/bash); fi
+  - if [[ $CODECOVERAGE == 1 ]]; then bash <(curl -s https://codecov.io/bash); fi
 
 notifications:
-    email: false
+  email: false
