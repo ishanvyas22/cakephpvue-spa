@@ -22,7 +22,7 @@ class PostsControllerTest extends IntegrationTestCase
     /**
      * {@inheritDoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
