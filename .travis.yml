@@ -17,7 +17,7 @@ env:
     matrix:
         - DB=mysql DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
 
-jobs:
+matrix:
     fast_finish: true
 
     global:
