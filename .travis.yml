@@ -5,6 +5,7 @@ dist: trusty
 branches:
   only:
     - master
+    - upgrade-app-to-cake4
 
 php:
   - 7.2
@@ -42,27 +43,21 @@ matrix:
     - php: 7.2
       env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_URL='mysql://root:root@127.0.0.1/cakevue_spa?init[]=SET sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"' DATABASE_TEST_URL='mysql://root:root@127.0.0.1/test_cakevue_spa?init[]=SET sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"'
 
-before_script:
+install:
   - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE cakevue_spa;'; fi
   - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE test_cakevue_spa;'; fi
   - if [ $DB = 'mysql' ]; then mysql -u root -e "CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'ishan';"; fi
   - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON cakevue_spa.* TO 'ishan'@'localhost';"; fi
   - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"; fi
-  - if [[ $PHPCS = 1 ]]; then composer require cakephp/cakephp-codesniffer:^3.0; fi
-  - if [[ $DEFAULT = 1 ]]; then composer install --no-interaction; fi
-  - if [[ $DEFAULT = 1 ]]; then composer test-setup; fi
-  - if [[ $DEFAULT = 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
 
-  - if [[ $CODECOVERAGE = 1 ]]; then composer install --no-interaction; fi
-  - if [[ $CODECOVERAGE = 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
-  - if [[ $CODECOVERAGE = 1 ]]; then composer test-setup; fi
+  - composer install --no-interaction
 
 script:
   - if [[ $DEFAULT = 1 ]]; then composer test; fi
 
-  - if [[ $PHPCS = 1 ]]; then vendor/bin/phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests; fi
+  - if [[ $PHPCS = 1 ]]; then composer cs-check; fi
 
-  - if [[ $PHPSTAN = 1 ]]; then composer phpstan-setup && composer phpstan; fi
+  - if [[ $PHPSTAN = 1 ]]; then composer analyse; fi
 
   - if [[ $CODECOVERAGE == 1 ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=clover.xml; fi
 
