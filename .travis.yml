@@ -12,7 +12,7 @@ php:
 
 env:
   matrix:
-    - DB=mysql DATABASE_TEST_URL='mysql://root:root@127.0.0.1/test_cakevue_spa'
+    - DB=mysql DATABASE_TEST_URL='mysql://root@127.0.0.1/test_cakevue_spa'
 
 services:
   - mysql
@@ -39,17 +39,13 @@ matrix:
       env: PHPSTAN=1 DEFAULT=0
 
     - php: 7.2
-      env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_TEST_URL='mysql://root:root@127.0.0.1/test_cakevue_spa'
+      env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_TEST_URL='mysql://root@127.0.0.1/test_cakevue_spa'
 
 before_install:
   - phpenv config-rm xdebug.ini
 
 install:
-  - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE cakevue_spa;'; fi
   - if [ $DB = 'mysql' ]; then mysql -u root -e 'CREATE DATABASE test_cakevue_spa;'; fi
-  - if [ $DB = 'mysql' ]; then mysql -u root -e "CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'ishan';"; fi
-  - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON cakevue_spa.* TO 'ishan'@'localhost';"; fi
-  - if [ $DB = 'mysql' ]; then mysql -u root -e "GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"; fi
 
   - composer install --no-interaction
 
