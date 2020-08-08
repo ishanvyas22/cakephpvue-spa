@@ -16,16 +16,14 @@ services:
 env:
     matrix:
         - DB=mysql DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
-    # global:
-    #     - DEFAULT=1
 
 jobs:
     fast_finish: true
 
-    include:
-        - php: 7.2
-            env: DEFAULT=0
+    global:
+        - DEFAULT=1
 
+    include:
         - php: 7.2
             env: PHPCS=1 DEFAULT=0
 
