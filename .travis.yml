@@ -12,7 +12,7 @@ php:
 
 env:
   matrix:
-    - DB=mysql DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
+    - DEFAULT=1 DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
 
 services:
   - mysql
@@ -25,19 +25,13 @@ cache:
 matrix:
   fast_finish: true
 
-  # global:
-  #   - DEFAULT=1
-  #   - PHPCS=0
-  #   - PHPSTAN=0
-  #   - CODECOVERAGE=0
-
   include:
     - php: 7.2
       env: PHPCS=1 DEFAULT=0
     - php: 7.2
       env: PHPSTAN=1 DEFAULT=0
     - php: 7.2
-      env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
+      env: CODECOVERAGE=1 DEFAULT=0 DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
 
 before_install:
   - phpenv config-rm xdebug.ini
