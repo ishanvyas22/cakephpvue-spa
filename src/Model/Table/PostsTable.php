@@ -81,7 +81,8 @@ class PostsTable extends Table
             ]);
 
             $post = $this->patchEntity($post, $data);
-            if ($result = $this->save($post)) {
+            $result = $this->save($post);
+            if ($result !== false) {
                 return $result;
             }
 
