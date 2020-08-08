@@ -10,7 +10,7 @@ A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerp
 ## Installation
 1. Get project into your system
 
-    Via [composer](https://packagist.org/packages/ishanvyas22/cakephpvue-spa):
+    Via [composer](https://getcomposer.org/):
     ```bash
     composer create-project ishanvyas22/cakephpvue-spa
     ```
@@ -18,7 +18,7 @@ A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerp
     ```bash
     git clone git@github.com:ishanvyas22/cakephpvue-spa.git
     ```
-2. Install composer and npm dependencies
+2. Install composer dependencies
     ```bash
     composer install
     ```
