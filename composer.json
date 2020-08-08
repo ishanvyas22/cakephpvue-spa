@@ -4,19 +4,21 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": ">=5.6",
+        "php": ">=7.2",
         "ext-json": "*",
-        "cakephp/cakephp": "3.8.*",
-        "cakephp/cakephp-codesniffer": "^3.0",
-        "cakephp/migrations": "^2.0.0",
-        "cakephp/plugin-installer": "^1.0",
-        "ishanvyas22/asset-mix": "^0.3.0",
-        "josegonzalez/dotenv": "3.*",
-        "mobiledetect/mobiledetectlib": "2.*"
+        "cakephp/cakephp": "~4.1.0",
+        "cakephp/migrations": "^3.0",
+        "cakephp/plugin-installer": "^1.2",
+        "ishanvyas22/asset-mix": "^1.0",
+        "mobiledetect/mobiledetectlib": "^2.8"
     },
     "require-dev": {
-        "cakephp/bake": "^1.1",
-        "cakephp/debug_kit": "^3.15.0",
+        "cakephp/bake": "^2.0.3",
+        "cakephp/cakephp-codesniffer": "~4.2.0",
+        "cakephp/debug_kit": "^4.1",
+        "josegonzalez/dotenv": "^3.2",
+        "phpstan/phpstan": "^0.12.36",
+        "phpunit/phpunit": "^8.0",
         "psy/psysh": "@stable"
     },
     "autoload": {
@@ -38,15 +40,13 @@
             "@test",
             "@cs-fix",
             "@cs-check",
-            "@phpstan"
+            "@analyse"
         ],
-        "cs-check": "phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
-        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
-        "test-setup": "cp composer.json composer.backup && composer require --dev phpunit/phpunit:\"^5.7.14|^6.0\" && mv composer.backup composer.json",
+        "analyse": "phpstan analyse -l 5 src/",
+        "cs-check": "phpcs --colors -p  src/ tests/",
+        "cs-fix": "phpcbf --colors -p src/ tests/",
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --coverage-clover=clover.xml",
-        "phpstan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan && mv composer.backup composer.json",
-        "phpstan": "phpstan analyse -l 5 src/"
+        "test-coverage": "phpunit --coverage-clover=clover.xml"
     },
     "prefer-stable": true,
     "config": {

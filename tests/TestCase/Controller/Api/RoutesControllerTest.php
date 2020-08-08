@@ -1,7 +1,8 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Test\TestCase\Controller\Api;
 
-use App\Controller\Api\RoutesController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
@@ -12,12 +13,12 @@ class RoutesControllerTest extends IntegrationTestCase
     /**
      * Total sidebar actions
      */
-    const TOTAL_ACTIONS = 2;
+    public const TOTAL_ACTIONS = 2;
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

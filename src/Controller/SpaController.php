@@ -1,17 +1,15 @@
 <?php
-namespace App\Controller;
+declare(strict_types=1);
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Spa Controller
- *
  *
  * @method \App\Model\Entity\Spa[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class SpaController extends AppController
 {
-
     /**
      * Index method
      *

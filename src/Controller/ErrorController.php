@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -14,8 +16,6 @@
  */
 namespace App\Controller;
 
-use Cake\Event\Event;
-
 /**
  * Error Handling Controller
  *
@@ -28,7 +28,7 @@ class ErrorController extends AppController
      *
      * @return void
      */
-    public function initialize()
+    public function initialize(): void
     {
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
@@ -41,7 +41,7 @@ class ErrorController extends AppController
      * @param \Cake\Event\Event $event Event.
      * @return \Cake\Http\Response|null|void
      */
-    public function beforeFilter(Event $event)
+    public function beforeFilter(\Cake\Event\EventInterface $event)
     {
     }
 
@@ -51,7 +51,7 @@ class ErrorController extends AppController
      * @param \Cake\Event\Event $event Event.
      * @return \Cake\Http\Response|null|void
      */
-    public function beforeRender(Event $event)
+    public function beforeRender(\Cake\Event\EventInterface $event)
     {
         parent::beforeRender($event);
 
@@ -64,7 +64,7 @@ class ErrorController extends AppController
      * @param \Cake\Event\Event $event Event.
      * @return \Cake\Http\Response|null|void
      */
-    public function afterFilter(Event $event)
+    public function afterFilter(\Cake\Event\EventInterface $event)
     {
     }
 }

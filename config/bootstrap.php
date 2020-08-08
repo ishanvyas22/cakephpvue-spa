@@ -41,7 +41,7 @@ use Cake\Utility\Inflector;
 use Cake\Error\ErrorHandler;
 use Cake\Http\ServerRequest;
 use Cake\Mailer\TransportFactory;
-use Cake\Console\ConsoleErrorHandler;
+use Cake\Error\ConsoleErrorHandler;
 use Cake\Datasource\ConnectionManager;
 use Cake\Core\Configure\Engine\PhpConfig;
 
@@ -53,7 +53,7 @@ use Cake\Core\Configure\Engine\PhpConfig;
 if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
     $dotenv->parse()
-        ->putenv()
+        ->putenv(true)
         ->toEnv()
         ->toServer();
 }

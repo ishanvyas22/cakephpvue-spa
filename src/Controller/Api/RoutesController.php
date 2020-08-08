@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Controller\Api;
 
 use App\Controller\AppController;
@@ -6,7 +8,6 @@ use App\Controller\Traits\ResponseTrait;
 
 /**
  * Routes Controller
- *
  *
  * @method \App\Model\Entity\Route[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
@@ -17,7 +18,7 @@ class RoutesController extends AppController
     /**
      * Get sidebar array
      *
-     * @return string
+     * @return \Cake\Http\Response
      */
     public function getSidebar()
     {

@@ -1,10 +1,8 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Model\Table;
 
-use Cake\Datasource\EntityInterface;
-use Cake\Event\Event;
-use Cake\ORM\Query;
-use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -19,19 +17,17 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Post patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Post[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Post findOrCreate($search, callable $callback = null, $options = [])
- *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class PostsTable extends Table
 {
-
     /**
      * Initialize method
      *
      * @param array $config The configuration for the Table.
      * @return void
      */
-    public function initialize(array $config)
+    public function initialize(array $config): void
     {
         parent::initialize($config);
 
@@ -48,7 +44,7 @@ class PostsTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator)
+    public function validationDefault(Validator $validator): \Cake\Validation\Validator
     {
         $validator
             ->integer('id')
@@ -85,7 +81,8 @@ class PostsTable extends Table
             ]);
 
             $post = $this->patchEntity($post, $data);
-            if ($result = $this->save($post)) {
+            $result = $this->save($post);
+            if ($result !== false) {
                 return $result;
             }
 

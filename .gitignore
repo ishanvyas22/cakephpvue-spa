@@ -5,7 +5,9 @@
 /logs/*
 /tmp/*
 /vendor/*
-/config/Migrations/schema-dump-default.lock
+/config/Migrations/*.lock
+/.phpunit.result.cache
+/clover.xml
 
 # OS generated files #
 ######################

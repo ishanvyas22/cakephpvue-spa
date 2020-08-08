@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace App\View;
 
 use Cake\View\View;
@@ -12,7 +14,6 @@ use Cake\View\View;
  */
 class AppView extends View
 {
-
     /**
      * Initialization hook method.
      *
@@ -22,7 +23,7 @@ class AppView extends View
      *
      * @return void
      */
-    public function initialize()
+    public function initialize(): void
     {
         $this->loadHelper('AssetMix.AssetMix');
     }

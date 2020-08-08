@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
@@ -8,7 +10,6 @@ use Cake\ORM\Entity;
  */
 class BaseEntity extends Entity
 {
-
     /**
      * Set first error message as error from validations array
      *

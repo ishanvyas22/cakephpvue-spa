@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Model\Entity;
 
 use App\Model\Entity\BaseEntity as Entity;
@@ -14,7 +16,6 @@ use App\Model\Entity\BaseEntity as Entity;
  */
 class Post extends Entity
 {
-
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *

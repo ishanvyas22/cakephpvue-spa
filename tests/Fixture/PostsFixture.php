@@ -5,11 +5,9 @@ use Cake\TestSuite\Fixture\TestFixture;
 
 /**
  * PostsFixture
- *
  */
 class PostsFixture extends TestFixture
 {
-
     /**
      * Fields
      *
@@ -37,7 +35,7 @@ class PostsFixture extends TestFixture
      *
      * @return void
      */
-    public function init()
+    public function init(): void
     {
         $this->records = [
             [
