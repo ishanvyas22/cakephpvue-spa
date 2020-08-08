@@ -8,10 +8,6 @@ branches:
 php:
   - 7.2
 
-env:
-  matrix:
-    - DB=mysql DATABASE_TEST_URL='mysql://root@127.0.0.1/test_cakevue_spa'
-
 services:
   - mysql
 
@@ -28,6 +24,8 @@ matrix:
     - PHPCS=0
     - PHPSTAN=0
     - CODECOVERAGE=0
+    - DB=mysql
+    - DATABASE_TEST_URL='mysql://root@127.0.0.1/test_cakevue_spa'
 
   include:
     - php: 7.2
@@ -43,7 +41,7 @@ before_install:
   - phpenv config-rm xdebug.ini
 
 install:
-  - if [ $DB == 'mysql' ]; then mysql -e 'CREATE DATABASE test_cakevue_spa;'; fi
+  - if [[ $DB == 'mysql' ]]; then mysql -e 'CREATE DATABASE test_cakevue_spa;'; fi
 
   - composer install --no-interaction
 
