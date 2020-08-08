@@ -41,7 +41,7 @@ use Cake\Utility\Inflector;
 use Cake\Error\ErrorHandler;
 use Cake\Http\ServerRequest;
 use Cake\Mailer\TransportFactory;
-use Cake\Console\ConsoleErrorHandler;
+use Cake\Error\ConsoleErrorHandler;
 use Cake\Datasource\ConnectionManager;
 use Cake\Core\Configure\Engine\PhpConfig;
 
