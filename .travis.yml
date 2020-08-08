@@ -5,32 +5,35 @@ branches:
         - master
         - upgrade-app-to-cake4
 
-php:
-    - 7.2
-    - 7.3
-    - 7.4
+# php:
+#     - 7.2
+#     - 7.3
+#     - 7.4
 
 services:
     - mysql
 
 env:
-    global:
-        - DEFAULT=1
-        - DB=mysql
-        - DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
+    matrix:
+        - DB=mysql DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
+    # global:
+    #     - DEFAULT=1
 
-matrix:
+jobs:
     fast_finish: true
 
     include:
         - php: 7.2
+            env: DEFAULT=0
+
+        - php: 7.2
             env: PHPCS=1 DEFAULT=0
 
-        # - php: 7.2
-        #     env: PHPSTAN=1 DEFAULT=0
+    #     - php: 7.2
+    #         env: PHPSTAN=1 DEFAULT=0
 
-        # - php: 7.2
-        #     env: CODECOVERAGE=1 DEFAULT=0
+    #     - php: 7.2
+    #         env: CODECOVERAGE=1 DEFAULT=0
 
 before_script:
     - mysql -u root -e "CREATE DATABASE test_cakevue_spa; CREATE USER 'ishan'@'localhost' IDENTIFIED BY 'vyas'; GRANT ALL ON test_cakevue_spa.* TO 'ishan'@'localhost';"
