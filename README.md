@@ -45,7 +45,7 @@ A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerp
         ```
     - **To generate production version of js file**
         ```bash
-        npm run production
+        npm run prod
         ```
 
 ## Notes
