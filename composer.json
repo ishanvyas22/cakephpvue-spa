@@ -17,6 +17,7 @@
     "require-dev": {
         "cakephp/bake": "^1.1",
         "cakephp/debug_kit": "^3.15.0",
+        "phpunit/phpunit": "^8.0",
         "psy/psysh": "@stable"
     },
     "autoload": {
