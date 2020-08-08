@@ -18,6 +18,7 @@ env:
         - DB=mysql DATABASE_TEST_URL='mysql://ishan:vyas@127.0.0.1/test_cakevue_spa'
     global:
         - DEFAULT=1
+        - PHPCS=0
 
 matrix:
     fast_finish: true
