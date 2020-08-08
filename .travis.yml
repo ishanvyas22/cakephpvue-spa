@@ -14,7 +14,7 @@ services:
 
 env:
     matrix:
-        - DB=mysql DATABASE_TEST_URL='mysql://ishan@127.0.0.1/test_cakevue_spa'
+        - DB=mysql DATABASE_TEST_URL='mysql://root@127.0.0.1/test_cakevue_spa'
     global:
         - DEFAULT=1
 
