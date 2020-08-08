@@ -3,7 +3,6 @@ language: php
 branches:
   only:
     - master
-    - upgrade-app-to-cake4
 
 php:
   - 7.2
