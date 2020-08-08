@@ -2,7 +2,7 @@ language: php
 
 branches:
     only:
-        - master
+        # - master
         - upgrade-app-to-cake4
 
 php:
@@ -21,6 +21,7 @@ env:
 
 matrix:
     fast_finish: true
+
     include:
         - php: 7.2
             env: PHPCS=1 DEFAULT=0
@@ -41,8 +42,8 @@ script:
     - if [[ $PHPSTAN = 1 ]]; then composer analyse; fi
     - if [[ $CODECOVERAGE == 1 ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=clover.xml; fi
 
-after_success:
-    - if [[ $CODECOVERAGE == 1 ]]; then bash <(curl -s https://codecov.io/bash); fi
+# after_success:
+#     - if [[ $CODECOVERAGE == 1 ]]; then bash <(curl -s https://codecov.io/bash); fi
 
 notifications:
     email: false
