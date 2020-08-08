@@ -17,6 +17,7 @@
         "cakephp/cakephp-codesniffer": "~4.2.0",
         "cakephp/debug_kit": "^4.1",
         "josegonzalez/dotenv": "^3.2",
+        "phpstan/phpstan": "^0.12.36",
         "phpunit/phpunit": "^8.0",
         "psy/psysh": "@stable"
     },
@@ -41,12 +42,10 @@
             "@cs-check",
             "@phpstan"
         ],
-        "cs-check": "phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
-        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
-        "test-setup": "cp composer.json composer.backup && composer require --dev phpunit/phpunit:\"^5.7.14|^6.0\" && mv composer.backup composer.json",
+        "cs-check": "phpcs --colors -p  src/ tests/",
+        "cs-fix": "phpcbf --colors -p src/ tests/",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --coverage-clover=clover.xml",
-        "phpstan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan && mv composer.backup composer.json",
         "phpstan": "phpstan analyse -l 5 src/"
     },
     "prefer-stable": true,
