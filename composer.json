@@ -42,11 +42,11 @@
             "@cs-check",
             "@analyse"
         ],
+        "analyse": "phpstan analyse -l 5 src/",
         "cs-check": "phpcs --colors -p  src/ tests/",
         "cs-fix": "phpcbf --colors -p src/ tests/",
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --coverage-clover=clover.xml",
-        "analyse": "phpstan analyse -l 5 src/"
+        "test-coverage": "phpunit --coverage-clover=clover.xml"
     },
     "prefer-stable": true,
     "config": {
