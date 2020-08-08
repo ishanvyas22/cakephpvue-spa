@@ -7,12 +7,10 @@ branches:
 
 php:
   - 7.2
-  - 7.3
-  - 7.4
 
 env:
   matrix:
-    - DB=mysql DATABASE_TEST_URL='mysql://root@127.0.0.1/test_cakevue_spa'
+    - DB=mysql DATABASE_TEST_URL='mysql://travis@127.0.0.1/test_cakevue_spa'
 
 services:
   - mysql
@@ -39,7 +37,7 @@ matrix:
       env: PHPSTAN=1 DEFAULT=0
 
     - php: 7.2
-      env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_TEST_URL='mysql://root@127.0.0.1/test_cakevue_spa'
+      env: CODECOVERAGE=1 DEFAULT=0 DB=mysql DATABASE_TEST_URL='mysql://travis@127.0.0.1/test_cakevue_spa'
 
 before_install:
   - phpenv config-rm xdebug.ini
