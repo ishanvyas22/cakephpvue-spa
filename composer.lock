@@ -54,16 +54,16 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "ec1afe59755717c25492bdb50efcd5f06fe52c0b"
+                "reference": "94ab7ac1b1e82a48bfec6c01b8ce603b01cb76a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/ec1afe59755717c25492bdb50efcd5f06fe52c0b",
-                "reference": "ec1afe59755717c25492bdb50efcd5f06fe52c0b",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/94ab7ac1b1e82a48bfec6c01b8ce603b01cb76a0",
+                "reference": "94ab7ac1b1e82a48bfec6c01b8ce603b01cb76a0",
                 "shasum": ""
             },
             "require": {
@@ -147,7 +147,7 @@
                 "rapid-development",
                 "validation"
             ],
-            "time": "2020-07-19T02:28:50+00:00"
+            "time": "2020-08-09T01:12:00+00:00"
         },
         {
             "name": "cakephp/cakephp-codesniffer",
