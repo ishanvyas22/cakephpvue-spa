@@ -1,6 +1,22 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/2.0.0...master)
+## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/2.1.0...master)
+
+## [2.1.0 (2021-03-28)](https://github.com/ishanvyas22/cakephpvue-spa/compare/2.0.1...2.1.0)
+
+### Fixed
+- npm security vulnerabilities ([a23625f](https://github.com/ishanvyas22/cakephpvue-spa/commit/a23625f45fb1c56598097a340ce30b99b1421da9))
+
+### Removed
+- `post-autoload-dump` hook from `composer.json` ([ab2ac60](https://github.com/ishanvyas22/cakephpvue-spa/commit/ab2ac609c66972f9d1f57f45cf62ce416f0d72af))
+
+### Updated
+- Bump `cakephp/plugin-installer` package to 1.3.1 ([e0cb837](https://github.com/ishanvyas22/cakephpvue-spa/commit/e0cb8378751757d74c8a1fb0047bfd38375ef5f0))
+- Bump ini from 1.3.5 to 1.3.8 ([#20](https://github.com/ishanvyas22/cakephpvue-spa/pull/20))
+- Bump axios from 0.19.2 to 0.21.1 ([#21](https://github.com/ishanvyas22/cakephpvue-spa/pull/21))
+- Bump elliptic from 6.5.3 to 6.5.4 ([#22](https://github.com/ishanvyas22/cakephpvue-spa/pull/22))
+
+## [2.0.1 (2020-08-09)](https://github.com/ishanvyas22/cakephpvue-spa/compare/2.0.0...2.0.1)
 
 ### Changed
 - Changed package link to getcomposer.org ([c514d07](https://github.com/ishanvyas22/cakephpvue-spa/commit/c514d073889fc0273c0d59256d726d3fab2b1980))
