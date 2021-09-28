@@ -1,0 +1,35 @@
+version = 1
+
+test_patterns = ["tests/**"]
+
+exclude_patterns = [
+  "node_modules/**",
+  "vendor/**",
+  "**/Migrations/**",
+  "bin/**",
+  "templates/**",
+  "webroot/**"
+]
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  plugins = ["vue"]
+
+[[analyzers]]
+name = "secrets"
+enabled = true
+
+[[analyzers]]
+name = "php"
+enabled = true
+
+[[transformers]]
+name = "php-cs-fixer"
+enabled = true
+
+[[transformers]]
+name = "prettier"
+enabled = true
