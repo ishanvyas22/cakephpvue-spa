@@ -1,0 +1,4 @@
+parameters:
+    bootstrapFiles:
+        - config/bootstrap.php
+        - vendor/cakephp/cakephp/tests/bootstrap.php
