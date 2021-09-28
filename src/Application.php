@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -14,6 +15,7 @@ declare(strict_types=1);
  * @since     3.3.0
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App;
 
 use Cake\Core\Configure;
@@ -84,10 +86,10 @@ class Application extends BaseApplication
             // you might want to disable this cache in case your routing is extremely simple
             ->add(new RoutingMiddleware($this, '_cake_routes_'));
 
-            // Add csrf middleware.
-            // ->add(new CsrfProtectionMiddleware([
-            //     'httpOnly' => true
-            // ]));
+        // Add csrf middleware.
+        // ->add(new CsrfProtectionMiddleware([
+        //     'httpOnly' => true
+        // ]));
 
         return $middlewareQueue;
     }

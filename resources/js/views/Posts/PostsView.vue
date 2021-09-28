@@ -6,12 +6,18 @@
             </div>
             <div class="columns large-6 clearfix">
                 <div class="button-group right">
-                    <a @click="showDeleteDialog(post.id)" class="shadow radius large" title="Remove">
+                    <a
+                        @click="showDeleteDialog(post.id)"
+                        class="shadow radius large"
+                        title="Remove"
+                    >
                         <i class="fi-trash large"></i>
                     </a>
                     <router-link
                         :to="{ path: `/posts/edit/${post.id}` }"
-                        class="shadow radius large"><i class="fi-page-edit large"></i></router-link>
+                        class="shadow radius large"
+                        ><i class="fi-page-edit large"></i
+                    ></router-link>
                 </div>
             </div>
         </div>
@@ -71,79 +77,81 @@
 </template>
 
 <script>
-    import moment from 'moment';
+import moment from "moment";
 
-    export default {
-        data() {
-            return {
-                postId: null,
-                post: [],
-                currentRoute: null,
-            };
-        },
-        mounted() {
-            this.currentRoute = this.$router.currentRoute.name;
-            this.postId = this.$route.params.id;
+export default {
+    data() {
+        return {
+            postId: null,
+            post: [],
+            currentRoute: null,
+        };
+    },
+    mounted() {
+        this.currentRoute = this.$router.currentRoute.name;
+        this.postId = this.$route.params.id;
 
-            this.viewPost(this.$route.query);
+        this.viewPost(this.$route.query);
+    },
+    watch: {
+        "$route.query"(newQuery, oldQuery) {
+            this.viewPost(newQuery);
         },
-        watch: {
-            '$route.query' (newQuery, oldQuery) {
-                this.viewPost(newQuery);
-            }
-        },
-        methods: {
-            viewPost(query) {
-                axios.get(`/api/posts/view/${this.postId}`, { params: query })
-                    .then(response => {
-                        this.post = response.data.post;
-                    })
-                    .catch(error => {
-                        console.log('Error: ' + error);
-                    });
-            },
-            showDeleteDialog(id) {
-                // $swal function calls SweetAlert into the application with the specified configuration.
-                this.$swal({
-                    title: `Are you sure you want to delete #${id}?`,
-                    text: 'You won\'t be able to revert this!',
-                    type: 'error',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!',
-                    cancelButtonText: 'No, cancel!',
-                }).then((result) => {
-                    if (result.value) {
-                        this.deletePost(id);
-                    }
+    },
+    methods: {
+        viewPost(query) {
+            axios
+                .get(`/api/posts/view/${this.postId}`, { params: query })
+                .then((response) => {
+                    this.post = response.data.post;
                 })
-            },
-            deletePost(id) {
-                axios.post(`/api/posts/delete/${id}`, {
-                        'id': id
-                    })
-                    .then(response => {
-                        this.$notify({
-                            group: 'default',
-                            type: 'success',
-                            text: response.data.message
-                        });
-
-                        this.$router.push({ path: '/posts' });
-                    })
-                    .catch(error => {
-                        this.$notify({
-                            group: 'default',
-                            type: 'error',
-                            text: error.response.data.message
-                        });
-                    });
-            }
+                .catch((error) => {
+                    console.log("Error: " + error);
+                });
         },
-        filters: {
-            moment: function (date) {
-                return moment(date).format('YYYY-MM-DD, hh:mm:ss A');
-            }
-        }
-    }
+        showDeleteDialog(id) {
+            // $swal function calls SweetAlert into the application with the specified configuration.
+            this.$swal({
+                title: `Are you sure you want to delete #${id}?`,
+                text: "You won't be able to revert this!",
+                type: "error",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+            }).then((result) => {
+                if (result.value) {
+                    this.deletePost(id);
+                }
+            });
+        },
+        deletePost(id) {
+            axios
+                .post(`/api/posts/delete/${id}`, {
+                    id: id,
+                })
+                .then((response) => {
+                    this.$notify({
+                        group: "default",
+                        type: "success",
+                        text: response.data.message,
+                    });
+
+                    this.$router.push({ path: "/posts" });
+                })
+                .catch((error) => {
+                    this.$notify({
+                        group: "default",
+                        type: "error",
+                        text: error.response.data.message,
+                    });
+                });
+        },
+    },
+    filters: {
+        moment: function (date) {
+            return moment(date).format("YYYY-MM-DD, hh:mm:ss A");
+        },
+    },
+};
 </script>
