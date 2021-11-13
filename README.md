@@ -8,6 +8,7 @@
 A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerplate to quickly get started with CakePHP and Vue.js.
 
 ## ❤️ Support The Development
+
 **Do you like this project? Support it by donating:**
 
 <a href="https://www.buymeacoffee.com/ishanvyas" target="_blank">
@@ -23,22 +24,28 @@ A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerp
 **or** [![Contact me on Codementor](https://www.codementor.io/m-badges/isvyas/get-help.svg)](https://www.codementor.io/@isvyas?refer=badge)
 
 ### Follow me
-- [GitHub](https://github.com/ishanvyas22)
-- [Instagram](https://www.instagram.com/ishancodes)
-- [LinkedIn](https://www.linkedin.com/in/ishan-vyas-314111112)
-- [Twitter](https://twitter.com/ishanvyas22)
+
+-   [GitHub](https://github.com/ishanvyas22)
+-   [Instagram](https://www.instagram.com/ishancodes)
+-   [LinkedIn](https://www.linkedin.com/in/ishan-vyas-314111112)
+-   [Twitter](https://twitter.com/ishanvyas22)
 
 ## Installation
+
 1. Get project into your system
 
     Via [composer](https://getcomposer.org/):
+
     ```bash
     composer create-project ishanvyas22/cakephpvue-spa
     ```
+
     Via cloning the project into your server:
+
     ```bash
     git clone git@github.com:ishanvyas22/cakephpvue-spa.git
     ```
+
 2. Install composer dependencies
     ```bash
     composer install
@@ -51,6 +58,7 @@ A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerp
 5. Start [CakePHP web server](https://book.cakephp.org/3.0/en/installation.html#development-server) or [create v-host](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04) to run this app.
 
 ## Development
+
 1. Install npm packages
     ```bash
     npm install
@@ -70,14 +78,18 @@ A basic CakePHP + VueJS single page application. Provides basic skeleton/boilerp
         ```
 
 ## Notes
-- This is project is under development currently so you might not want to use this app in production directly.
-- This is just a skeleton/example how you can implement the Vue.js with CakePHP.
+
+-   This is project is under development currently so you might not want to use this app in production directly.
+-   This is just a skeleton/example how you can implement the Vue.js with CakePHP.
 
 ## Changelog
+
 Please see [CHANGELOG](CHANGELOG.md) for more information about recent changes.
 
 ## Contribution
+
 I love to welcome your contributions if you know CakePHP / Vue.js.
 
 ## License
+
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
