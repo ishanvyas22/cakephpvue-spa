@@ -1,6 +1,22 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/2.1.0...master)
+## [Unreleased](https://github.com/ishanvyas22/cakephpvue-spa/compare/2.1.1...master)
+
+## [2.1.1 (2021-11-14)](https://github.com/ishanvyas22/cakephpvue-spa/compare/2.1.0...2.1.1)
+
+### Updated
+- Bump y18n from 4.0.0 to 4.0.1 ([#23](https://github.com/ishanvyas22/cakephpvue-spa/pull/23))
+- Bump ssri from 6.0.1 to 6.0.2 ([#24](https://github.com/ishanvyas22/cakephpvue-spa/pull/24))
+- Bump lodash from 4.17.19 to 4.17.21 ([#26](https://github.com/ishanvyas22/cakephpvue-spa/pull/26))
+- Bump composer/composer from 1.10.10 to 1.10.22 ([#25](https://github.com/ishanvyas22/cakephpvue-spa/pull/25))
+- Bump browserslist from 4.14.0 to 4.16.6 ([#27](https://github.com/ishanvyas22/cakephpvue-spa/pull/27))
+- Bump dns-packet from 1.3.1 to 1.3.4 ([#28](https://github.com/ishanvyas22/cakephpvue-spa/pull/28))
+- Bump ws from 6.2.1 to 6.2.2 ([#29](https://github.com/ishanvyas22/cakephpvue-spa/pull/29))
+- Bump path-parse from 1.0.6 to 1.0.7 ([#30](https://github.com/ishanvyas22/cakephpvue-spa/pull/30))
+- Bump color-string from 1.5.3 to 1.6.0 ([#32](https://github.com/ishanvyas22/cakephpvue-spa/pull/32))
+- Bump url-parse from 1.5.1 to 1.5.3 ([#31](https://github.com/ishanvyas22/cakephpvue-spa/pull/31))
+- Bump axios from 0.21.1 to 0.21.2 ([#33](https://github.com/ishanvyas22/cakephpvue-spa/pull/33))
+- Bump composer/composer from 1.10.22 to 1.10.23 ([#36](https://github.com/ishanvyas22/cakephpvue-spa/pull/36))
 
 ## [2.1.0 (2021-03-28)](https://github.com/ishanvyas22/cakephpvue-spa/compare/2.0.1...2.1.0)
 
